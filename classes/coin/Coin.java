@@ -38,15 +38,31 @@ public class Coin {
     private String image;
 
     /**
+     * The name of the coin
+     */
+    private String name;
+
+    /**
+     * Price it takes to unlock the coin
+     */
+    private double unlockPrice;
+
+    /**
      * Constructs a coin object that fluxtuates in value and investors
      * The initial supply is set to 0
+     * @param name The display name of the coin
      * @param value The init value of coin
      * @param investors Init investors
+     * @param image The path for the img file
+     * @param unlockPrice Price it takes to unlock the coin
      */
-    public Coin(double value, int investors)
+    public Coin(String name, double value, int investors, String image, double unlockPrice)
     {
+        this.name = name;
         this.value = value;
         this.investors = investors;
+        this.image = image;
+        this.unlockPrice = unlockPrice;
         this.supply = 0;
     }
 
@@ -150,6 +166,24 @@ public class Coin {
     }
 
     /**
+     * Get the name of the coin
+     * @return this.name
+     */
+    public String getName()
+    {
+        return this.name;
+    }
+
+    /**
+     * Accessor method for this.unlockPrice
+     * @return this.unlockPrice
+     */
+    public double getUnlockPrice()
+    {
+        return this.unlockPrice;
+    }
+
+    /**
      * Find price of coin yes
      * @return Stonk price of the coin
      */
@@ -157,5 +191,19 @@ public class Coin {
     {
         double typ = (this.value * this.investors) / (double) Math.ceil(this.supply / 5);
         return typ + modify;
+    }
+
+    /**
+     * Calculates the number of new investors and coin supply that will occur.
+     * This occurs at different rates for each coin.
+     * There's also different conditions for the influenceCalc that might be listed.
+     */
+    public void influenceCalc()
+    {
+        int frenzy = (int)this.calculatePrice() / 10000;
+        int negPlus = (int) (Math.random() * 3);
+        this.investors += negPlus == 0 ? (int)(Math.random() * 5) * frenzy : (int)(Math.random() * 5) * frenzy * -1;
+
+        this.supply += this.investors * (int)(Math.random() * 2 + 1);
     }
 }
