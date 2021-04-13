@@ -1,9 +1,8 @@
 package frontend.statBar;
 
-import javax.swing.JLabel;
 import gameNav.Player;
 import gameNav.StatLabel;
-import java.awt.Font;
+import javax.swing.ImageIcon;
 
 /**
  * Frontend display class that displays the number of investors.
@@ -11,7 +10,7 @@ import java.awt.Font;
  * @since 4/13/21
  * @category frontend.statbar
  */
-public class InvestorDisplay extends JLabel
+public class InvestorDisplay extends DataDisplay
 {
     private static final long serialVersionUID = 0;
 
@@ -20,20 +19,15 @@ public class InvestorDisplay extends JLabel
      */
     public InvestorDisplay()
     {
-        super();
-        this.calibrateInvestors();
-        this.setVerticalTextPosition(JLabel.CENTER);
-        this.setOpaque(true);
-        this.setFont(new Font("Trebuchet ms", Font.PLAIN, 24));
-        this.setHorizontalAlignment(JLabel.RIGHT);
+        super(new ImageIcon("images/Investor.png"), true);
     }
 
     /**
      * Updates the investor display to show the correct number of investors
      */
-    public void calibrateInvestors()
+    public void calibrate()
     {
-        String txt = "👨‍💻 " + StatLabel.calibrate(Player.getCoin().getInvestors());
+        String txt = "" + StatLabel.calibrate(Player.getCoin().getInvestors());
         this.setText(txt);
     }
 }

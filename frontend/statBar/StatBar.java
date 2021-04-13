@@ -73,11 +73,11 @@ public class StatBar extends JPanel
      */
     public void updateDisplays(boolean isStonks)
     {
-        this.cDisplay.calibrateCash();
-        this.iDisplay.calibrateInvestors();
-        this.vDisplay.calibrateValue();
-        this.pDisplay.calibratePrice(isStonks);
-        this.sDisplay.calibrateSupply();
+        this.cDisplay.calibrate();
+        this.iDisplay.calibrate();
+        this.vDisplay.calibrate();
+        this.pDisplay.calibrate(isStonks);
+        this.sDisplay.calibrate();
     }
 
     /**

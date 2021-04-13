@@ -1,9 +1,8 @@
 package frontend.statBar;
 
-import javax.swing.JLabel;
 import gameNav.Player;
 import gameNav.StatLabel;
-import java.awt.Font;
+import javax.swing.ImageIcon;
 
 /**
  * The class for displaying the coin supply in circulation.
@@ -11,7 +10,7 @@ import java.awt.Font;
  * @since 4/13/21
  * @category frontend.statbar
  */
-public class SupplyDisplay extends JLabel
+public class SupplyDisplay extends DataDisplay
 {
     /**
      * WHYYYY IS THIS A THING
@@ -23,20 +22,15 @@ public class SupplyDisplay extends JLabel
      */
     public SupplyDisplay()
     {
-        super();
-        this.calibrateSupply();
-        this.setVerticalTextPosition(JLabel.CENTER);
-        this.setOpaque(true);
-        this.setFont(new Font("Trebuchet ms", Font.PLAIN, 24));
-        this.setHorizontalAlignment(JLabel.RIGHT);
+        super(new ImageIcon("images/Bank.png"), true);
     }
 
     /**
      * Updates the supply display to the correct, up to date number
      */
-    public void calibrateSupply()
+    public void calibrate()
     {
-        String text = "🏦 " + StatLabel.calibrate(Player.getCoin().getSupply());
+        String text = "" + StatLabel.calibrate(Player.getCoin().getSupply());
         this.setText(text);
     }
 }
