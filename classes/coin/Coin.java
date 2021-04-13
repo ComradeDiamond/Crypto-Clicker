@@ -202,6 +202,7 @@ public class Coin {
     {
         int frenzy = (int)this.calculatePrice() / 10000;
         int negPlus = (int) (Math.random() * 3);
+        
         this.investors += negPlus == 0 ? (int)(Math.random() * 5) * frenzy : (int)(Math.random() * 5) * frenzy * -1;
 
         this.supply += this.investors * (int)(Math.random() * 2 + 1);
