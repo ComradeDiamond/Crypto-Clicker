@@ -28,6 +28,7 @@ public class PriceDisplay extends JLabel
         this.setVerticalTextPosition(JLabel.CENTER);
         this.setOpaque(true);
         this.setFont(new Font("Trebuchet ms", Font.PLAIN, 24));
+        this.setHorizontalAlignment(JLabel.RIGHT);
     }
 
     /**

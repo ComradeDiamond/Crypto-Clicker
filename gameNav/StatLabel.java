@@ -21,7 +21,7 @@ public class StatLabel
 
         if (num < 1000)
         {
-            textDisplay += roundFix(num, 1);
+            textDisplay += num;
         }
         else if (num < 1000000) //Thousand
         {

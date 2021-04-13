@@ -1,6 +1,7 @@
 package frontend.statBar;
 import javax.swing.JPanel;
 import java.awt.FlowLayout;
+import java.awt.Dimension;
 
 /**
  * The statbar widget for the frontend
@@ -48,10 +49,35 @@ public class StatBar extends JPanel
     public StatBar()
     {
         super();
-        this.setLayout(new FlowLayout());
-        this.setBounds(0, 0, 800, 60);
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 10));
+        this.setPreferredSize(new Dimension(800, 110));
 
+        //Setting the displays and putting them in
         this.cDisplay = new CashDisplay();
+        this.vDisplay = new ValueDisplay();
+        this.iDisplay = new InvestorDisplay();
+        this.pDisplay = new PriceDisplay();
+        this.sDisplay = new SupplyDisplay();
+
+        this.add(new Title());
+        this.add(this.cDisplay);
+        this.add(this.pDisplay);
+        this.add(this.vDisplay);
+        this.add(this.sDisplay);
+        this.add(this.iDisplay);
+    }
+
+    /**
+     * Automatically calls calibrate on all the statbar widget displays.
+     * @param isStonks Whether the price of the coin has increased or not
+     */
+    public void updateDisplays(boolean isStonks)
+    {
+        this.cDisplay.calibrateCash();
+        this.iDisplay.calibrateInvestors();
+        this.vDisplay.calibrateValue();
+        this.pDisplay.calibratePrice(isStonks);
+        this.sDisplay.calibrateSupply();
     }
 
     /**
