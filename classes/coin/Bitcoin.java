@@ -14,6 +14,6 @@ public class Bitcoin extends Coin
      */
     public Bitcoin()
     {
-        super("Bitcoin", 1, 300, "", 1000);
+        super("Bitcoin", 1, 300, "images/Bitcoin.png", 1000);
     }
 }

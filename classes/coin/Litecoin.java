@@ -11,6 +11,6 @@ public class Litecoin extends Coin
      */
     public Litecoin()
     {
-        super("Litecoin", 1, 0, "", 0);
+        super("Litecoin", 1, 0, "images/Litecoin.png", 0);
     }
 }

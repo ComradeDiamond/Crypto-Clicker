@@ -21,7 +21,7 @@ public class Player
     /**
      * The current coin type you have
      */
-    private static Coin currCoin = new Litecoin();
+    private static Coin currCoin = new Bitcoin();
 
     /**
      * The coin index the current coinArr idx player is at in the coinArr

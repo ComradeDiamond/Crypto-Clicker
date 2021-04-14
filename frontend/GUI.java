@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 
 import frontend.statBar.StatBar;
+import frontend.coin.CoinDisplay;
 
 /**
  * Constructs a javax swing GUI for the app.
@@ -18,6 +19,11 @@ public class GUI extends JFrame
      * The statbar we're putting in to the GUI
      */
     private StatBar sBar;
+
+    /**
+     * The frontend display for the coin
+     */
+    private CoinDisplay coinDisplay;
 
     /**
      * Constructs the game GUI
@@ -39,6 +45,9 @@ public class GUI extends JFrame
         this.sBar = new StatBar();
         this.add(this.sBar, BorderLayout.NORTH);
 
+        this.coinDisplay = new CoinDisplay();
+        this.add(this.coinDisplay, BorderLayout.EAST);
+
         this.setVisible(true);
     }
 
@@ -49,5 +58,14 @@ public class GUI extends JFrame
     public StatBar getStatBar()
     {
         return this.sBar;
+    }
+
+    /**
+     * Accessor method for the coin display
+     * @return this.coinDisplay
+     */
+    public CoinDisplay getCoinDisplay()
+    {
+        return this.coinDisplay;
     }
 }

@@ -15,6 +15,6 @@ public class Dogecoin extends Coin
      */
     public Dogecoin()
     {
-        super("Dogecoin!!!", 0.0000000001, 10000, "", 10000000);
+        super("Dogecoin!!!", 0.0000000001, 10000, "images/Dogecoin.png", 10000000);
     }
 }

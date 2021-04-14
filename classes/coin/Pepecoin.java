@@ -14,6 +14,6 @@ public class Pepecoin extends Coin
      */
     public Pepecoin()
     {
-        super("Pepecoin", 1000, 1, "", 1000000);
+        super("Pepecoin", 1000, 1, "images/Pepecoin.png", 1000000);
     }
 }
