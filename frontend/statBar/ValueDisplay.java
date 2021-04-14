@@ -30,7 +30,7 @@ public class ValueDisplay extends DataDisplay
      */
     public void calibrate()
     {
-        String text = "" + StatLabel.calibrate(Player.getCoin().getValue());
+        String text = "$" + StatLabel.calibrate(Player.getCoin().getValue());
         this.setText(text);
     }
 }

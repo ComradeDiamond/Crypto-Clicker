@@ -3,6 +3,7 @@ package frontend.statBar;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 
 /**
  * Superclass for data display
@@ -27,10 +28,11 @@ public class DataDisplay extends JLabel
     public DataDisplay(ImageIcon icon, boolean callCalibrate)
     {
         super();
-        this.setIcon(icon);
+        this.setIcon(new ImageIcon(icon.getImage().getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING)));
         this.calibrate();
-        this.setVerticalTextPosition(JLabel.CENTER);
-        this.setOpaque(true);
+        this.setVerticalAlignment(JLabel.CENTER);
+        this.setHorizontalTextPosition(JLabel.RIGHT);
+        this.setOpaque(false);
         this.setFont(new Font("Trebuchet ms", Font.PLAIN, 24));
         this.setHorizontalAlignment(JLabel.RIGHT);
     }

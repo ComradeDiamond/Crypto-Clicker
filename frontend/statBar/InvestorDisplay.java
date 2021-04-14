@@ -27,7 +27,7 @@ public class InvestorDisplay extends DataDisplay
      */
     public void calibrate()
     {
-        String txt = "" + StatLabel.calibrate(Player.getCoin().getInvestors());
+        String txt = "#" + StatLabel.calibrate(Player.getCoin().getInvestors());
         this.setText(txt);
     }
 }

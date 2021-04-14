@@ -27,7 +27,7 @@ public class GUI extends JFrame
     {
         super("Crypto Clicker");
         this.setResizable(false);
-        this.setSize(800, 600);
+        this.setSize(1200, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
 

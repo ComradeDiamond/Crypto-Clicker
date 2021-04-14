@@ -19,7 +19,7 @@ public class CashDisplay extends DataDisplay
      */
     public CashDisplay()
     {
-        super(new ImageIcon("Money.png"), true);
+        super(new ImageIcon("images/Money.png"), true);
     }
 
     /**
@@ -28,7 +28,7 @@ public class CashDisplay extends DataDisplay
      */
     public void calibrate()
     {
-        String textDisplay = "<html>💲 ";
+        String textDisplay = "$";
         textDisplay += StatLabel.calibrate(Player.getCash());
         this.setText(textDisplay);
     }

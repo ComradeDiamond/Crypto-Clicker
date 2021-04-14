@@ -20,12 +20,12 @@ public class PriceDisplay extends DataDisplay
     /**
      * The image icon for stonks
      */
-    private static ImageIcon stonks = new ImageIcon("images/Stonks.png");
+    private static ImageIcon stonks = new ImageIcon(new ImageIcon("images/Stonks.png").getImage().getScaledInstance(40, 49, 16));
 
     /**
      * The image icon for not stonks
      */
-    private static ImageIcon stinks = new ImageIcon("images/Stinks.png");
+    private static ImageIcon stinks = new ImageIcon(new ImageIcon("images/Stinks.png").getImage().getScaledInstance(40, 49, 16));
 
     /**
      * Constructs a price display!
@@ -46,7 +46,7 @@ public class PriceDisplay extends DataDisplay
         ImageIcon icon = isStonks ? PriceDisplay.stonks : PriceDisplay.stinks;
         this.setIcon(icon);
 
-        String txt = "" + StatLabel.calibrate(Player.getCoin().getValue());
+        String txt = "$" + StatLabel.calibrate(Player.getCoin().getValue());
 
         this.setText(txt);
     }

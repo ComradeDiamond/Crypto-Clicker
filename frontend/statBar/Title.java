@@ -19,7 +19,7 @@ public class Title extends JLabel
     public Title()
     {
         super();
-        this.setIcon(new ImageIcon("images/Logo2.png"));
+        this.setIcon(new ImageIcon("images/Logo1.png"));
         this.setSize(300, 100);
     }
 }
