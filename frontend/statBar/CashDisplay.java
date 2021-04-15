@@ -30,7 +30,7 @@ public class CashDisplay extends DataDisplay
     {
         String textDisplay = "$";
         textDisplay += StatLabel.calibrate(Player.getCash());
-        System.out.println(textDisplay);
+        //System.out.println(textDisplay);
         this.setText(textDisplay);
     }
 }

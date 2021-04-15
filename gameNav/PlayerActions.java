@@ -27,8 +27,8 @@ public class PlayerActions
         double initIncome = Player.getCoin().calculatePrice();
         double income = Player.getCoin().click();
 
-        Player.getGUI().getStatBar().updateDisplays(income > initIncome);
         PlayerActions.tax(income);
+        Player.getGUI().getStatBar().updateDisplays(income > initIncome);
     }
 
     /**

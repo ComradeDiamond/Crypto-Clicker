@@ -88,6 +88,7 @@ public class WealthTax extends Tax
         sum += calibrate(cash, 1000000000000.0) * this.trills;
         sum += (cash - (cash % 1000000000000000.0)) * this.mores;
 
+        //System.out.println(sum);
         Player.changeCash(sum * -1);
     }
 

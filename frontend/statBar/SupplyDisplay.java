@@ -30,7 +30,7 @@ public class SupplyDisplay extends DataDisplay
      */
     public void calibrate()
     {
-        String text = "" + StatLabel.calibrate(Player.getCoin().getSupply());
+        String text = "" + StatLabel.calibrateWhole(Player.getCoin().getSupply());
         this.setText(text);
     }
 }

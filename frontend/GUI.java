@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 
 import frontend.statBar.StatBar;
+import frontend.choiceBar.ChoiceBar;
 import frontend.coin.CoinDisplay;
 
 /**
@@ -24,6 +25,11 @@ public class GUI extends JFrame
      * The frontend display for the coin
      */
     private CoinDisplay coinDisplay;
+
+    /**
+     * The choicebar display for the coin
+     */
+    private ChoiceBar cBar;
 
     /**
      * Constructs the game GUI
@@ -48,6 +54,9 @@ public class GUI extends JFrame
         this.coinDisplay = new CoinDisplay();
         this.add(this.coinDisplay, BorderLayout.EAST);
 
+        this.cBar = new ChoiceBar();
+        this.add(this.cBar, BorderLayout.WEST);
+        
         this.setVisible(true);
     }
 

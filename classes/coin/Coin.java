@@ -193,7 +193,7 @@ public class Coin {
      */
     public double calculatePrice()
     {
-        double typ = (this.value * this.investors) / (Math.ceil((double)this.supply / 100) + 1);
+        double typ = (this.value * (this.investors + 1)) / ((double)this.supply / 100 + 1);
         return typ + modify;
     }
 
@@ -204,13 +204,21 @@ public class Coin {
      */
     public void influenceCalc()
     {
-        int frenzy = (int)this.calculatePrice() / 10000;
-        int negPlus = (int) (Math.random() * 3);
-        
-        this.investors += negPlus == 0 ? (int)(Math.random() * 5) * frenzy : (int)(Math.random() * 5) * frenzy * -1;
+        int frenzy = (int)this.calculatePrice() / 1000 + 1;
+        int negPlus = (int) (Math.random() * 5);
 
-        this.supply += this.investors * (int)(Math.random() * 2 + 1);
-        this.supply++;
+        int infl = negPlus == 0 ? (int)(Math.random() * 5) * frenzy * -1 : (int)(Math.random() * 5) * frenzy;
+        
+        if (this.investors + infl < 0) 
+        {
+            this.investors = 0;
+        }
+        else
+        {
+            this.investors += infl;
+        }
+
+        this.supply += (int)(this.investors * (Math.random() * 2 + 1));
     }
 
     /**
@@ -221,10 +229,9 @@ public class Coin {
      */
     public double click()
     {
-        double money = this.calculatePrice();
-        Player.changeCash(money);
+        Player.changeCash(this.calculatePrice());
         this.influenceCalc();
 
-        return money;
+        return this.calculatePrice();
     }
 }
