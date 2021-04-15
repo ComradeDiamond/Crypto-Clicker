@@ -35,8 +35,13 @@ public class StatLabel
                 format = "000.00E0";
             break;
         }
-
+        
         String str = new DecimalFormat(format).format(num);
+
+        if (str.indexOf("E0") != -1)
+        {
+            str = str.replace("E0", "");
+        }
         return isNeg ? "-" + str : str;
     }
 
@@ -65,6 +70,12 @@ public class StatLabel
         }
 
         String str = new DecimalFormat(format).format(num);
+
+        if (str.indexOf("E0") != -1)
+        {
+            str = str.replace("E0", "");
+        } 
+
         return isNeg ? "-" + str : str;
     }
 

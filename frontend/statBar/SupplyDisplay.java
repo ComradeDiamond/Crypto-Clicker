@@ -22,7 +22,7 @@ public class SupplyDisplay extends DataDisplay
      */
     public SupplyDisplay()
     {
-        super(new ImageIcon("images/Bank.png"), true);
+        super(new ImageIcon("images/Bank.png"), true, "How many coins are in supply. If you have dogecoins, this is going to be a nightmare.");
     }
 
     /**

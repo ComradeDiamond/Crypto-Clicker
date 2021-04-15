@@ -19,7 +19,7 @@ public class CashDisplay extends DataDisplay
      */
     public CashDisplay()
     {
-        super(new ImageIcon("images/Money.png"), true);
+        super(new ImageIcon("images/Money.png"), true, "This is your place balanace. Try not to go bankrupt.");
     }
 
     /**

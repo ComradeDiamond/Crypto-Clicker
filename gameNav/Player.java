@@ -3,6 +3,7 @@ import classes.coin.*;
 import classes.tax.*;
 import frontend.GUI;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * The overall player class that represents the player.
@@ -40,12 +41,14 @@ public class Player
     /**
      * Array to keep track of the coin upgrades
      */
-    private static Coin[] coinArr = {};
+    private static Coin[] coinArr = {new Litecoin(), new Bitcoin(), new Pepecoin(), new Dogecoin()};
 
     /**
      * ArrayList to keep track of the player's taxes
      */
-    private static ArrayList<Tax> taxArr = new ArrayList<>();
+    private static ArrayList<Tax> taxArr = new ArrayList<>(Arrays.asList(new Tax[] {
+        new IncomeTax(), new ForeignTax(), new CapitalGainsTax(), new WealthTax(), new InternationalTax()
+    }));
 
     /**
      * Accessor method for Player.cash
@@ -99,7 +102,13 @@ public class Player
      */
     public static void upgradeCoin()
     {
-        Player.currCoin = Player.nextCoin();
+        Coin newCoin = Player.nextCoin();
+
+        if (newCoin != null)
+        {
+            Player.currCoin = newCoin;
+            Player.coinIdx++;
+        }
     }
 
     /**
@@ -144,5 +153,32 @@ public class Player
                 return;
             }
         }
+    }
+
+    /**
+     * Adds a tax to the tax hierarchy
+     * @param tax The tax to add
+     */
+    public static void addTax(Tax tax)
+    {
+        Player.taxArr.add(tax);
+    }
+
+    /**
+     * Fetches a tax with the given name.
+     * @param name The name of tax to fetch
+     * @return The tax object, or null if none exists
+     */
+    public static Tax fetchTax(String name)
+    {
+        for (Tax tax : Player.taxArr)
+        {
+            if (tax.getName().equalsIgnoreCase(name))
+            {
+                return tax;
+            }
+        }
+
+        return null;
     }
 }

@@ -34,6 +34,15 @@ public class Tax
     }
 
     /**
+     * Changes the tax rate.
+     * @param taxRateChange The change, in decimal number, to the tax rate
+     */
+    public void changeTaxRate(double taxRateChange)
+    {
+        this.taxRate += taxRateChange;
+    }
+
+    /**
      * Accessor method for tax rate
      * @return this.taxRate
      */

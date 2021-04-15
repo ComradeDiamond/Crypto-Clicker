@@ -24,8 +24,9 @@ public class DataDisplay extends JLabel
      * @param icon The icon to display in the JLabel
      * @param callCalibrate Whether or not to call the default calibrate method of the class.
         * If it's a no, you must write your own calibrate method call
+     * @param tooltipTxt The tooltip text to display on hover!
      */
-    public DataDisplay(ImageIcon icon, boolean callCalibrate)
+    public DataDisplay(ImageIcon icon, boolean callCalibrate, String tooltipTxt)
     {
         super();
         this.setIcon(new ImageIcon(icon.getImage().getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING)));
@@ -35,6 +36,7 @@ public class DataDisplay extends JLabel
         this.setOpaque(false);
         this.setFont(new Font("Trebuchet ms", Font.PLAIN, 22));
         this.setHorizontalAlignment(JLabel.RIGHT);
+        this.setToolTipText(tooltipTxt);
     }
 
     /**
