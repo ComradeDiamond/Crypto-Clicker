@@ -25,8 +25,8 @@ public class ChoiceBar extends JPanel
     public ChoiceBar()
     {
         super();
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 25));
-        this.setPreferredSize(new Dimension(200, 490));
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 25));
+        this.setPreferredSize(new Dimension(220, 490));
 
         this.add(new LeftBar());
         this.add(new RightBar());

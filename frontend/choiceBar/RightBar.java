@@ -25,6 +25,5 @@ public class RightBar extends JPanel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setAlignmentX(JPanel.CENTER_ALIGNMENT);
         this.setPreferredSize(new Dimension(100, 465));
-        this.setBackground(Color.CYAN);
     }
 }
