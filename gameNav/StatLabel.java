@@ -1,5 +1,7 @@
 package gameNav;
 
+import java.text.DecimalFormat;
+
 /**
  * Superclass for investor, supply, and cash display.
  * This class is largely useless aside from a method determining how number rounding works
@@ -17,46 +19,54 @@ public class StatLabel
      */
     public static String calibrate(double num)
     {
-        String textDisplay = "";
+        boolean isNeg = num < 0;
+        if (num == 0) return "0.00";
 
-        if (num < 1000)
+        int tkd = (int)(Math.log10(Math.abs(num)));
+        String format = "0.00E0";
+
+        switch (tkd % 3)
         {
-            textDisplay += num;
-        }
-        else if (num < 1000000) //Thousand
-        {
-            textDisplay += roundFix(num, 1000) + "K";
-        }
-        else if (num < 1000000000) //Million
-        {
-            textDisplay += roundFix(num, 1000000) + "M";
-        }
-        else if (num < 1000000000000.0) //Billion
-        {
-            textDisplay += roundFix(num, 1000000000) + "B";
-        }
-        else if (num < 1000000000000000.0) //Trillion
-        {
-            textDisplay += roundFix(num, 1000000000000.0) + "T";
-        }
-        else //Quadrillion, if someone somehow manages to get to quadrillion
-        {
-            textDisplay += roundFix(num, 1000000000000000000.0) + " Quadrillion";
+            case 1:
+                format = "00.00E0";
+            break;
+
+            case 2:
+                format = "000.00E0";
+            break;
         }
 
-        return textDisplay;
+        String str = new DecimalFormat(format).format(num);
+        return isNeg ? "-" + str : str;
     }
 
     /**
-     * Collapses a number to its place value + 2 decimal points
-     * For example, 3,456 becomes 3.45
-     * 442,123 becomes 442.12
-     * @param num Number
-     * @param placeVal Place value to round to
-     * @return Rounded number
+     * Calibrates a number whole.
+     * @param num The num to calibrate
+     * @return The calibrated num, but without decimals
      */
-    private static double roundFix(double num, double placeVal)
+    public static String calibrateWhole(double num)
     {
-        return num / placeVal - (num % (placeVal / 100)) / (placeVal);
+        boolean isNeg = num < 0;
+        if (num == 0) return "0";
+
+        int tkd = (int)(Math.log10(Math.abs(num)));
+        String format = "0E0";
+
+        switch (tkd % 3)
+        {
+            case 1:
+                format = "00E0";
+            break;
+
+            case 2:
+                format = "000E0";
+            break;
+        }
+
+        String str = new DecimalFormat(format).format(num);
+        return isNeg ? "-" + str : str;
     }
+
+    //There's alot more code but String.format was way more efficient lol
 }

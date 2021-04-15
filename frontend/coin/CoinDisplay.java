@@ -1,7 +1,7 @@
 package frontend.coin;
 
 import javax.swing.JLabel;
-import gameNav.Player;
+import gameNav.*;
 import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
@@ -33,12 +33,12 @@ public class CoinDisplay extends JLabel
             Translated bc I can't read this java mess:
 
             this.addEventListener("click", () => {
-                coin.click();
+                PlayerActions.click();
             })
         */
         this.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent e) {
-                //Player.getCoin().click();
+                PlayerActions.click();
             }
 
             //Yes we're never going to use you smh

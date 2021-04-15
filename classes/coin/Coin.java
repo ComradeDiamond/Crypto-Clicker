@@ -1,5 +1,7 @@
 package classes.coin;
 
+import gameNav.Player;
+
 /**
  * The superclass of all coins you click on.
  * This will literally represent a coin.
@@ -49,7 +51,8 @@ public class Coin {
 
     /**
      * Constructs a coin object that fluxtuates in value and investors
-     * The initial supply is set to 0
+     * The initial supply is set to 0.
+     * Initial modify is set to 0.
      * @param name The display name of the coin
      * @param value The init value of coin
      * @param investors Init investors
@@ -64,6 +67,7 @@ public class Coin {
         this.image = image;
         this.unlockPrice = unlockPrice;
         this.supply = 0;
+        this.modify = 0;
     }
 
     /**
@@ -189,7 +193,7 @@ public class Coin {
      */
     public double calculatePrice()
     {
-        double typ = (this.value * this.investors) / (double) Math.ceil(this.supply / 5);
+        double typ = (this.value * this.investors) / (Math.ceil((double)this.supply / 100) + 1);
         return typ + modify;
     }
 
@@ -206,5 +210,21 @@ public class Coin {
         this.investors += negPlus == 0 ? (int)(Math.random() * 5) * frenzy : (int)(Math.random() * 5) * frenzy * -1;
 
         this.supply += this.investors * (int)(Math.random() * 2 + 1);
+        this.supply++;
+    }
+
+    /**
+     * Stimulates a coin click. 
+     * This does wack stuff with the investors and the price.
+     * This is the most default one.
+     * @return The $ the player got
+     */
+    public double click()
+    {
+        double money = this.calculatePrice();
+        Player.changeCash(money);
+        this.influenceCalc();
+
+        return money;
     }
 }

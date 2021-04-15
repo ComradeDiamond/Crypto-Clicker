@@ -50,7 +50,7 @@ public class StatBar extends JPanel
     public StatBar()
     {
         super();
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 10));
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 25, 10));
         this.setPreferredSize(new Dimension(1200, 110));
         this.setBackground(new Color(224, 224, 224));
 

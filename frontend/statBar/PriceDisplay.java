@@ -46,7 +46,7 @@ public class PriceDisplay extends DataDisplay
         ImageIcon icon = isStonks ? PriceDisplay.stonks : PriceDisplay.stinks;
         this.setIcon(icon);
 
-        String txt = "$" + StatLabel.calibrate(Player.getCoin().getValue());
+        String txt = "$" + StatLabel.calibrate(Player.getCoin().calculatePrice());
 
         this.setText(txt);
     }

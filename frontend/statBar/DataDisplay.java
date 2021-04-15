@@ -33,7 +33,7 @@ public class DataDisplay extends JLabel
         this.setVerticalAlignment(JLabel.CENTER);
         this.setHorizontalTextPosition(JLabel.RIGHT);
         this.setOpaque(false);
-        this.setFont(new Font("Trebuchet ms", Font.PLAIN, 24));
+        this.setFont(new Font("Trebuchet ms", Font.PLAIN, 22));
         this.setHorizontalAlignment(JLabel.RIGHT);
     }
 

@@ -9,9 +9,54 @@ package classes.tax;
  */
 public class Tax 
 {
-    //private Player player;
-    public Tax()
-    {
+    /**
+     * The tax rate, expressed as a decimal
+     */
+    private double taxRate;
 
+    /**
+     * Name of the tax
+     */
+    private String name;
+
+    public Tax(double taxRate, String name)
+    {
+        this.taxRate = taxRate;
+    }
+
+    /**
+     * Mutator method for tax rates
+     * @param taxRate The rate to set taxes to
+     */
+    public void setTaxRate(double taxRate)
+    {
+        this.taxRate = taxRate;
+    }
+
+    /**
+     * Accessor method for tax rate
+     * @return this.taxRate
+     */
+    public double getTaxRate()
+    {
+        return this.taxRate;
+    }
+
+    /**
+     * Gets the name of the tax. Accessor method basically.
+     * @return this.name
+     */
+    public String getName()
+    {
+        return this.name;
+    }
+
+    /**
+     * Superclass/abstract method? for enacting taxes.
+     * This method will apply the tax to the player.
+     * Each tax has different conditions.
+     */
+    public void enact()
+    {
     }
 }

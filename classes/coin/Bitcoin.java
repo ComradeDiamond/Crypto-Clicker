@@ -1,5 +1,7 @@
 package classes.coin;
 
+import gameNav.Player;
+
 /**
  * Who uses bitcoins anymore lmao
  * Honestly tho this is what tryhards use to invest
@@ -15,5 +17,17 @@ public class Bitcoin extends Coin
     public Bitcoin()
     {
         super("Bitcoin", 1, 300, "images/Bitcoin.png", 1000);
+    }
+
+    /**
+     * Overrides the click from Coin.java.
+     * However, Bitcoins are heavily taxed. So be aware of that.
+     * You might go into negative balance if the government taxes too much.
+     * @return The $ you earned.
+     */
+    public double click()
+    {
+        Player.changeCash(this.calculatePrice() * -0.2);
+        return super.click();
     }
 }

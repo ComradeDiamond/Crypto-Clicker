@@ -16,4 +16,18 @@ public class Pepecoin extends Coin
     {
         super("Pepecoin", 1000, 1, "images/Pepecoin.png", 1000000);
     }
+
+    /**
+     * Overrides the click from Coin.java
+     * You only have a 10% chance of mining pepeCoins.
+     */
+    public double click()
+    {
+        if ((int)(Math.random() * 10) == 0)
+        {
+            return super.click();
+        }
+
+        return 0;
+    }
 }

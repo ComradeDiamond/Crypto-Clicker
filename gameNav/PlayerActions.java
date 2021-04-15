@@ -1,4 +1,6 @@
 package gameNav;
+import classes.tax.Tax;
+//import frontend.statBar.StatBar;
 
 /**
  * It's supposed to be game.java, but that doesn't rly exist in swing version.
@@ -21,6 +23,24 @@ public class PlayerActions
      */
     public static void click()
     {
+        //Income is basically just calculate price
+        double initIncome = Player.getCoin().calculatePrice();
+        double income = Player.getCoin().click();
 
+        Player.getGUI().getStatBar().updateDisplays(income > initIncome);
+        PlayerActions.tax(income);
+    }
+
+    /**
+     * Taxes the player.
+     * This will loop through all taxes the player has on them and slowly apply them all.
+     * @param income The money the player made
+     */
+    public static void tax(double income)
+    {
+        for (Tax tax : Player.getTaxes())
+        {
+            tax.enact();
+        }
     }
 }

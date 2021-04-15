@@ -1,18 +1,26 @@
 package gameNav;
 import classes.coin.*;
 import classes.tax.*;
+import frontend.GUI;
+import java.util.ArrayList;
 
 /**
  * The overall player class that represents the player.
  * This stores all of the player's stats they need to keep track of.
  * The player class is static - anyone can access this. There's no point of making it an object lol
- * This itself does not compute anything - it's all outsourced to other classes
+ * This itself does not compute anything - it's all outsourced to other classes.coin.
+ * YOU MUST CALL PLAYER.SETGUI() BEFORE STARTING THE GAME
  * @author Justin
  * @since 4/12/21
  * @category gameNav
  */
 public class Player 
 {
+    /**
+     * The GUI of the game
+     */
+    private static GUI gui;
+
     /**
      * The money you have
      */
@@ -35,9 +43,9 @@ public class Player
     private static Coin[] coinArr = {};
 
     /**
-     * Array to keep track of the player's taxes
+     * ArrayList to keep track of the player's taxes
      */
-    private static Tax[] taxArr = {};
+    private static ArrayList<Tax> taxArr = new ArrayList<>();
 
     /**
      * Accessor method for Player.cash
@@ -95,11 +103,46 @@ public class Player
     }
 
     /**
-     * Return the entire tax array!
+     * Return the entire tax array list!
      * @return Player.taxArr
      */
-    public static Tax[] getTaxes()
+    public static ArrayList<Tax> getTaxes()
     {
         return Player.taxArr;
+    }
+
+    /**
+     * Sets the player's GUI and provides a frontend reference.
+     * THIS MUST BE DONE WHEN THE GAME IS INITIALIZED
+     * @param gui The GUI to attach to
+     */
+    public static void setGUI(GUI gui)
+    {
+        Player.gui = gui;
+    }
+
+    /**
+     * Accessor method for the GUI
+     * @return Player.gui
+     */
+    public static GUI getGUI()
+    {
+        return Player.gui;
+    }
+
+    /**
+     * Remove a tax specified from the taxArr using a linear search
+     * @param name The name of the tax to remove
+     */
+    public static void removeTax(String name)
+    {
+        for (int i = 0; i < Player.taxArr.size(); i++)
+        {
+            if (Player.taxArr.get(i).getName().equalsIgnoreCase(name))
+            {
+                Player.taxArr.remove(i);
+                return;
+            }
+        }
     }
 }
