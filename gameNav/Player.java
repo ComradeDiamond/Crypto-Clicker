@@ -28,11 +28,6 @@ public class Player
     private static double cash = 0;
 
     /**
-     * The current coin type you have
-     */
-    private static Coin currCoin = new Bitcoin();
-
-    /**
      * The coin index the current coinArr idx player is at in the coinArr
      * The array indexes represent "tiers" of crypto coins
      */
