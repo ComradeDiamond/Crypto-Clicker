@@ -19,7 +19,6 @@ public class StatLabel
      */
     public static String calibrate(double num)
     {
-        boolean isNeg = num < 0;
         if (num == 0) return "0.00";
 
         int tkd = (int)(Math.log10(Math.abs(num)));
@@ -42,7 +41,7 @@ public class StatLabel
         {
             str = str.replace("E0", "");
         }
-        return isNeg ? "-" + str : str;
+        return str;
     }
 
     /**
@@ -52,7 +51,6 @@ public class StatLabel
      */
     public static String calibrateWhole(double num)
     {
-        boolean isNeg = num < 0;
         if (num == 0) return "0";
 
         int tkd = (int)(Math.log10(Math.abs(num)));
@@ -76,7 +74,7 @@ public class StatLabel
             str = str.replace("E0", "");
         } 
 
-        return isNeg ? "-" + str : str;
+        return str;
     }
 
     //There's alot more code but String.format was way more efficient lol

@@ -39,6 +39,11 @@ public class Player
     private static Coin[] coinArr = {new Litecoin(), new Bitcoin(), new Pepecoin(), new Dogecoin()};
 
     /**
+     * The current coin type you have
+     */
+    private static Coin currCoin = coinArr[0];
+
+    /**
      * ArrayList to keep track of the player's taxes
      */
     private static ArrayList<Tax> taxArr = new ArrayList<>(Arrays.asList(new Tax[] {
