@@ -68,4 +68,12 @@ public class Tax
     public void enact()
     {
     }
+
+    /**
+     * Converts the tax into a string method for debugging purposes
+     */
+    public String toString()
+    {
+        return "Tax Rate: " + this.getTaxRate() + ", Tax Name: " + this.getName();
+    }
 }
