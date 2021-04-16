@@ -2,7 +2,6 @@ package frontend.statBar;
 import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 
 /**
  * The statbar widget for the frontend
@@ -51,7 +50,8 @@ public class StatBar extends JPanel
     {
         super();
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 25, 10));
-        this.setPreferredSize(new Dimension(1200, 110));
+        //this.setPreferredSize(new Dimension(1200, 110));
+        this.setBounds(0, 0, 1200, 110);
         this.setBackground(new Color(224, 224, 224));
 
         //Setting the displays and putting them in

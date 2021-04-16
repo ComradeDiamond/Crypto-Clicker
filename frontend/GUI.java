@@ -1,6 +1,5 @@
 package frontend;
 import javax.swing.*;
-import java.awt.BorderLayout;
 
 import frontend.statBar.StatBar;
 import frontend.choiceBar.ChoiceBar;
@@ -32,6 +31,11 @@ public class GUI extends JFrame
     private ChoiceBar cBar;
 
     /**
+     * The JLayeredPane
+     */
+    private JLayeredPane pane;
+
+    /**
      * Constructs the game GUI
      * @throws Exception if something goes wrong
      */
@@ -41,22 +45,25 @@ public class GUI extends JFrame
         this.setResizable(false);
         this.setSize(1200, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new BorderLayout());
 
-        /*ImageIcon icon = new ImageIcon("./images/Dogecoin.png");
+        //App icon
+        ImageIcon icon = new ImageIcon("./images/Dogecoin.png");
         this.setIconImage(icon.getImage());
 
-        JLabel label = new JLabel("Crypto Clicker");*/
+        //Resume adding children
+        this.pane = new JLayeredPane();
+        this.pane.setBounds(0, 0, 1200, 600);
+        this.add(this.pane);
 
         this.sBar = new StatBar();
-        this.add(this.sBar, BorderLayout.NORTH);
+        this.pane.add(this.sBar);
 
         this.coinDisplay = new CoinDisplay();
-        this.add(this.coinDisplay, BorderLayout.EAST);
+        this.pane.add(this.coinDisplay);
 
         this.cBar = new ChoiceBar();
-        this.add(this.cBar, BorderLayout.WEST);
-        
+        this.pane.add(this.cBar);
+
         this.setVisible(true);
     }
 
@@ -76,5 +83,29 @@ public class GUI extends JFrame
     public CoinDisplay getCoinDisplay()
     {
         return this.coinDisplay;
+    }
+
+    /**
+     * Automatically appends something to the modal layer of the JLayeredPane.
+     * Why does this sound like javascript
+     * @param component The component to add
+     */
+    public void appendChild(JComponent component)
+    {
+        this.pane.add(component, JLayeredPane.MODAL_LAYER);
+        this.pane.setVisible(true);
+    }
+
+    /**
+     * Removes an item in the JLayeredPane
+     * @param component The component to remove
+     */
+    public void removeChild(JComponent component)
+    {
+        this.pane.remove(component);
+        if (this.pane.highestLayer() == 0) //If no children
+        {
+            this.pane.setVisible(false);
+        }
     }
 }

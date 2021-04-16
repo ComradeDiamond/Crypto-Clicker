@@ -3,7 +3,6 @@ package frontend.coin;
 import javax.swing.JLabel;
 import gameNav.*;
 import javax.swing.ImageIcon;
-import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -26,7 +25,8 @@ public class CoinDisplay extends JLabel
         super();
         this.updateImage();
         this.setVerticalAlignment(JLabel.CENTER);
-        this.setPreferredSize(new Dimension(500, 350));
+        this.setBounds(700, 150, 500, 350);
+        //this.setPreferredSize(new Dimension(500, 350));
 
         /*
             Responds to button clicks.

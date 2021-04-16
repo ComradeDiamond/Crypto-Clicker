@@ -1,7 +1,6 @@
 package frontend.choiceBar;
 
 import javax.swing.JPanel;
-import java.awt.Color;
 import frontend.choiceBar.buttons.*;
 import javax.swing.BoxLayout;
 import java.awt.Dimension;

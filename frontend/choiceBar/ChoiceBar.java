@@ -2,8 +2,6 @@ package frontend.choiceBar;
 
 import java.awt.FlowLayout;
 import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Dimension;
 
 /**
  * The choicebar!
@@ -26,7 +24,8 @@ public class ChoiceBar extends JPanel
     {
         super();
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 25));
-        this.setPreferredSize(new Dimension(220, 490));
+        this.setBounds(20, 140, 220, 490);
+        //this.setPreferredSize(new Dimension(220, 490));
 
         this.add(new LeftBar());
         this.add(new RightBar());
