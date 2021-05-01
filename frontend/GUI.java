@@ -93,7 +93,6 @@ public class GUI extends JFrame
     public void appendChild(JComponent component)
     {
         this.pane.add(component, JLayeredPane.MODAL_LAYER);
-        this.pane.setVisible(true);
     }
 
     /**
@@ -103,9 +102,8 @@ public class GUI extends JFrame
     public void removeChild(JComponent component)
     {
         this.pane.remove(component);
-        if (this.pane.highestLayer() == 0) //If no children
-        {
-            this.pane.setVisible(false);
-        }
+        this.pane.revalidate();
+        this.pane.repaint();
+        System.out.print("Yeeted");
     }
 }

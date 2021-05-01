@@ -3,7 +3,12 @@ package frontend.choiceBar.displays;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 import gameNav.Player;
+import frontend.choiceBar.Choicer;
+import frontend.choiceBar.SmartListener;
+import java.awt.event.MouseEvent;
 
 /**
  * This cover is the default layout of any "web" display thing.
@@ -28,11 +33,28 @@ public class Cover extends JPanel
         super();
         this.setBounds(0, 0, 1200, 600); //Full screen
         this.setBackground(new Color(77, 77, 77, 60));
+        this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
 
         this.textPanel = new JPanel();
+        this.textPanel.setBackground(Color.WHITE);
         this.textPanel.setPreferredSize(new Dimension(800, 500));
-        this.textPanel.setAlignmentX(JPanel.CENTER_ALIGNMENT);
-        this.textPanel.setAlignmentY(JPanel.CENTER_ALIGNMENT);
+        this.textPanel.setLayout(new BorderLayout());
+
+        //No lexical scoping is dumb yes
+        Cover temp = this;
+
+        Choicer exit = new Choicer("Exit", "images/Previous.png");
+        exit.addMouseListener(new SmartListener(exit) {
+            public void mouseClicked(MouseEvent e)
+            {
+                temp.destroy();
+            }
+        });
+
+        exit.setPreferredSize(new Dimension(80, 80));
+        this.textPanel.add(exit, BorderLayout.NORTH);
+
+        this.add(this.textPanel);
     }
 
     /**
