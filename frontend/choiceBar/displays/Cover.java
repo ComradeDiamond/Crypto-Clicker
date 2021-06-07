@@ -3,6 +3,7 @@ package frontend.choiceBar.displays;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import gameNav.Player;
@@ -31,8 +32,8 @@ public class Cover extends JPanel
     public Cover()
     {
         super();
-        this.setBounds(0, 0, 1200, 600); //Full screen
-        this.setBackground(new Color(77, 77, 77, 60));
+        this.setBounds(0, 0, Player.getGUI().getX(), Player.getGUI().getY()); //Full screen
+        this.setBackground(new Color(77, 77, 77, 20));
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
 
         this.textPanel = new JPanel();
@@ -48,12 +49,13 @@ public class Cover extends JPanel
             public void mouseClicked(MouseEvent e)
             {
                 temp.destroy();
+                Player.getGUI().revalidate();
+                Player.getGUI().repaint();
             }
         });
 
         exit.setPreferredSize(new Dimension(80, 80));
         this.textPanel.add(exit, BorderLayout.NORTH);
-
         this.add(this.textPanel);
     }
 
