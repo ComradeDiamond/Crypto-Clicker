@@ -1,5 +1,6 @@
 package frontend.choiceBar.buttons;
 
+import frontend.choiceBar.displays.CoinUpgrade;
 import frontend.choiceBar.displays.Cover;
 import java.awt.event.MouseEvent;
 import frontend.choiceBar.*;
@@ -23,7 +24,7 @@ public class Upgrade extends Choicer
         super("Upgrade your coin to something else!", "images/Upgrade.png");
         super.addMouseListener(new SmartListener(this) {
             public void mouseClicked(MouseEvent e) {
-                new Cover().display();
+                new CoinUpgrade().display();
             }
         });
     }

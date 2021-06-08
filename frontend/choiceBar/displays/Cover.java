@@ -3,7 +3,6 @@ package frontend.choiceBar.displays;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
-import javax.swing.JLabel;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import gameNav.Player;
@@ -26,6 +25,16 @@ public class Cover extends JPanel
     private JPanel textPanel;
 
     /**
+     * The length of the text panel
+     */
+    protected int tpLength;
+
+    /**
+     * The height of the text panel
+     */
+    protected int tpHeight;
+
+    /**
      * Constructs a cover object.
      * This is hidden by default
      */
@@ -36,9 +45,12 @@ public class Cover extends JPanel
         this.setBackground(new Color(77, 77, 77, 20));
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
 
+        this.tpLength = 800;
+        this.tpHeight = 500;
+
         this.textPanel = new JPanel();
         this.textPanel.setBackground(Color.WHITE);
-        this.textPanel.setPreferredSize(new Dimension(800, 500));
+        this.textPanel.setPreferredSize(new Dimension(this.tpLength, this.tpHeight));
         this.textPanel.setLayout(new BorderLayout());
 
         //No lexical scoping is dumb yes
