@@ -22,7 +22,7 @@ public class ValueDisplay extends DataDisplay
      */
     public ValueDisplay()
     {
-        super(new ImageIcon("images/Value.png"), true, "The true value of your crypto coin!\nThis drastically impacts your coin price more than any investors.");
+        super(new ImageIcon("images/Value.png"), true, "<html>The true value of your crypto coin!<br />This drastically impacts your coin price more than any investors.</html>");
     }
 
     /**

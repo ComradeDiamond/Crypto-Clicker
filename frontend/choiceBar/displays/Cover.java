@@ -66,8 +66,11 @@ public class Cover extends JPanel
             }
         });
 
-        exit.setPreferredSize(new Dimension(80, 80));
-        this.textPanel.add(exit, BorderLayout.NORTH);
+        //Adding exit [expanded button] radius so we can change it later
+        //This number is found in smartListener
+        int exitRadius = 100;
+        exit.setBounds(this.tpLength - exitRadius - 10, 5, exitRadius, exitRadius);
+        this.textPanel.add(exit);
         this.add(this.textPanel);
     }
 

@@ -32,9 +32,9 @@ public class PriceDisplay extends DataDisplay
      */
     public PriceDisplay()
     {
-        super(stonks, false, "<html>This is the stock value of your crypto coin. Keep an eye on this as this is how much $ you'll make from each click.\n" +
-        "Factors for STONKS: Coin Value, Investor Number, Influencers\nFactors for STINKS: Coin supply\n" +
-        "The price is also affected by external mutators.\nIf you get rich enough, this will be subject to heavy capital gains tax.");
+        super(stonks, false, "<html>This is the stock value of your crypto coin. Keep an eye on this as this is how much $ you'll make from each click. <br />" +
+        "Factors for STONKS: Coin Value, Investor Number, Influencers<br />Factors for STINKS: Coin supply<br />" +
+        "The price is also affected by external mutators.\nIf you get rich enough, this will be subject to heavy capital gains tax.</html>");
         this.calibrate(false);
     }
 

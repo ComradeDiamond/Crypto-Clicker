@@ -19,8 +19,8 @@ public class InvestorDisplay extends DataDisplay
      */
     public InvestorDisplay()
     {
-        super(new ImageIcon("images/Investor.png"), true, "<html>This is how many investors you have. More investors means more profit.\n" +
-        "However also be warned that more investors also means more supply.");
+        super(new ImageIcon("images/Investor.png"), true, "<html>This is how many investors you have. More investors means more profit.<br />" +
+        "However also be warned that more investors also means more supply.</html>");
     }
 
     /**
