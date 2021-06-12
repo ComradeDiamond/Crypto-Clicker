@@ -123,7 +123,6 @@ public class CoinUpgrade extends Cover
         btn.addMouseListener(new MouseListener(){
             public void mouseClicked(MouseEvent e) {
                 //To do: add doge coin
-                //To do: Update frontend display again
                 //Since we upgraded the coin, this getUnlockPrice woud be the unlock price of the coin we intended
                 Player.upgradeCoin();
                 Player.setCash(Player.getCash() - Player.getCoin().getUnlockPrice());

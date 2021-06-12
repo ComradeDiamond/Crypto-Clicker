@@ -102,12 +102,11 @@ public class Player
      */
     public static void upgradeCoin()
     {
-        Coin newCoin = Player.nextCoin();
-
-        if (newCoin != null)
+        if (Player.nextCoin() != null)
         {
-            Player.currCoin = newCoin;
+            Player.currCoin = Player.nextCoin();
             Player.coinIdx++;
+            Player.getGUI().getCoinDisplay().updateImage();
         }
     }
 
