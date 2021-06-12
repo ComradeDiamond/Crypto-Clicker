@@ -35,6 +35,11 @@ public class Cover extends JPanel
     protected int tpHeight;
 
     /**
+     * Creates a choicer button that exits the tab
+     */
+    protected Choicer exitBtn;
+
+    /**
      * Constructs a cover object.
      * This is hidden by default
      */
@@ -60,11 +65,11 @@ public class Cover extends JPanel
         exit.addMouseListener(new SmartListener(exit) {
             public void mouseClicked(MouseEvent e)
             {
-                temp.destroy();
-                Player.getGUI().revalidate();
-                Player.getGUI().repaint();
+                temp.exit();
             }
         });
+
+        this.exitBtn = exit;
 
         //Adding exit [expanded button] radius so we can change it later
         //This number is found in smartListener
@@ -97,5 +102,15 @@ public class Cover extends JPanel
     public void destroy()
     {
         Player.getGUI().removeChild(this);
+    }
+
+    /**
+     * Exits the cover page by clicking the exit button
+     */
+    public void exit()
+    {
+        this.destroy();
+        Player.getGUI().revalidate();
+        Player.getGUI().repaint();
     }
 }
