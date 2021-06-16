@@ -50,6 +50,11 @@ public class Coin {
     private double unlockPrice;
 
     /**
+     * Sets the lore of the coin
+     */
+    private String lore;
+
+    /**
      * Constructs a coin object that fluxtuates in value and investors
      * The initial supply is set to 0.
      * Initial modify is set to 0.
@@ -59,13 +64,14 @@ public class Coin {
      * @param image The path for the img file
      * @param unlockPrice Price it takes to unlock the coin
      */
-    public Coin(String name, double value, int investors, String image, double unlockPrice)
+    public Coin(String name, double value, int investors, String image, double unlockPrice, String lore)
     {
         this.name = name;
         this.value = value;
         this.investors = investors;
         this.image = image;
         this.unlockPrice = unlockPrice;
+        this.lore = lore;
         this.supply = 0;
         this.modify = 0;
     }
@@ -195,6 +201,16 @@ public class Coin {
     {
         double typ = (this.value * (this.investors + 1)) / ((double)this.supply / 100 + 1);
         return typ + modify;
+    }
+
+    /**
+     * Returns the "lore" of the coin.
+     * Basically, it's just a brief description of the coin
+     * @return this.lore
+     */
+    public String getLore()
+    {
+        return this.lore;
     }
 
     /**

@@ -42,6 +42,7 @@ public class CoinUpgrade extends Cover
         jp1.setBackground(Color.WHITE);
         //jp1.setLayout(new BoxLayout(jp1, BoxLayout.LINE_AXIS));
         jp1.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 0));
+        jp1.setBorder(new EmptyBorder(25, 0, 0, 0));
 
         int netWidth = this.tpLength - IMAGEWIDTH;
 
@@ -58,7 +59,7 @@ public class CoinUpgrade extends Cover
         jp1Text.setEditable(false);
         jp1Text.setWrapStyleWord(true);
         jp1Text.setLineWrap(true);
-        jp1Text.setText("lorem ipsum dolor sit amet donut garcia me tree fee");
+        jp1Text.setText(Player.getCoin().getLore());
         jp1Text.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
         //Kinda took the shortcut here with abs size, because jtextarea is java is absurdly dumb
         //Like actually dumb. Responsive design goes poof
@@ -77,8 +78,6 @@ public class CoinUpgrade extends Cover
 
         jp1.add(jp1Word);
         jp1.add(jp1Img);
-        jp1.revalidate();
-        jp1.repaint();
 
         //jp2
         JPanel jp2 = new JPanel();
@@ -91,42 +90,64 @@ public class CoinUpgrade extends Cover
         int prefHeight1 = jp2Word.getPreferredSize().height;
         jp2Word.setSize(netWidth, prefHeight1);
 
-        JLabel jp2Title = new JLabel(Player.getCoin().getName());
-        jp2Title.setFont(new Font("Trebuchet ms", Font.BOLD, 22));
+        //Prevents null errors
+        JLabel jp2Title;
+        JTextArea jp2Text;
+        JLabel jp2Img = new JLabel();
+        if (Player.nextCoin() == null)
+        {
+            jp2Title = new JLabel("Final Upgrade");
+            jp2Title.setFont(new Font("Trebuchet ms", Font.BOLD, 22));
 
-        JTextArea jp2Text = new JTextArea();
-        jp2Text.setEditable(false);
-        jp2Text.setWrapStyleWord(true);
-        jp2Text.setLineWrap(true);
-        jp2Text.setText("lorem ipsum dolor sit amet donut garcia me tree fee");
-        jp2Text.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
-        jp2Text.setColumns(35); 
+            jp2Text = new JTextArea("There are no more coin upgrades! Check renewable projects and the tech tree!");
+            jp2Text.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
+            jp2Text.setEditable(false);
+            jp2Text.setWrapStyleWord(true);
+            jp2Text.setLineWrap(true);
+            jp2Text.setColumns(35); 
+        }
+        else
+        {
+            jp2Title = new JLabel(Player.nextCoin().getName());
+            jp2Title.setFont(new Font("Trebuchet ms", Font.BOLD, 22));
+
+            jp2Text = new JTextArea();
+            jp2Text.setEditable(false);
+            jp2Text.setWrapStyleWord(true);
+            jp2Text.setLineWrap(true);
+            jp2Text.setText(Player.nextCoin().getLore());
+            jp2Text.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
+            jp2Text.setColumns(35); 
+
+            jp2Img = new JLabel();
+            ImageIcon imgIcon2 = new ImageIcon(new ImageIcon(Player.nextCoin().getImage()).getImage().getScaledInstance(IMAGEWIDTH, IMAGEWIDTH, 16));
+            jp2Img.setIcon(imgIcon2);
+            jp2Img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+            jp2Img.setAlignmentY(JLabel.CENTER_ALIGNMENT);
+            jp2Img.setBorder(new EmptyBorder(10, 10, 0, 0));
+        }
 
         jp2Word.add(jp2Title);
         jp2Word.add(jp2Text);
 
-        JLabel jp2Img = new JLabel();
-        ImageIcon imgIcon2 = new ImageIcon(new ImageIcon(Player.nextCoin().getImage()).getImage().getScaledInstance(IMAGEWIDTH, IMAGEWIDTH, 16));
-        jp2Img.setIcon(imgIcon2);
-        jp2Img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-        jp2Img.setAlignmentY(JLabel.CENTER_ALIGNMENT);
-        jp2Img.setBorder(new EmptyBorder(10, 10, 0, 0));
-
         jp2.add(jp2Word);
         jp2.add(jp2Img);
-        jp2.revalidate();
-        jp2.repaint();
 
         Cover dis = this;
         JButton btn = new JButton("Upgrade");
         btn.setBackground(Color.CYAN);
+        //btn.setBackground(new Color(25, 25, 25));
         btn.addMouseListener(new MouseListener(){
             public void mouseClicked(MouseEvent e) {
-                //To do: add doge coin
-                //Since we upgraded the coin, this getUnlockPrice woud be the unlock price of the coin we intended
-                Player.upgradeCoin();
-                Player.setCash(Player.getCash() - Player.getCoin().getUnlockPrice());
-                dis.exit();
+                //Note: CHange it to Player.getCash() > Player.nextCoin later
+                if (Player.nextCoin() != null && Player.getCash() < Player.nextCoin().calculatePrice())
+                {
+                    //To do: add doge coin
+                    //Since we upgraded the coin, this getUnlockPrice woud be the unlock price of the coin we intended
+                    Player.upgradeCoin();
+                    Player.setCash(Player.getCash() - Player.getCoin().getUnlockPrice());
+                    dis.exit();
+                }
             }
         
             public void mouseReleased(MouseEvent e) {
@@ -143,9 +164,19 @@ public class CoinUpgrade extends Cover
             }
         });
         btn.setBorder(new LineBorder(Color.BLUE));
+        if (Player.nextCoin() == null)
+        {
+            btn.setEnabled(false);
+            btn.setText("This is the maximum Upgrade");
+        }
+        else if (Player.getCash() < Player.nextCoin().calculatePrice())
+        {
+            btn.setEnabled(false);
+            btn.setText("Insufficient Funds");
+        }
 
-        jp1.setBorder(new LineBorder(Color.BLACK));
-        jp2.setBorder(new LineBorder(Color.BLACK));
+        //jp1.setBorder(new LineBorder(Color.BLACK));
+        //jp2.setBorder(new LineBorder(Color.BLACK));
         centerPane.add(jp1);
         centerPane.add(new JSeparator(JSeparator.HORIZONTAL));
         centerPane.add(jp2);

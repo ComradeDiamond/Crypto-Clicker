@@ -104,7 +104,9 @@ public class Player
     {
         if (Player.nextCoin() != null)
         {
+            //When we set the new coin, the stats like investors auto-calibrates
             Player.currCoin = Player.nextCoin();
+            Player.getGUI().getStatBar().updateDisplays(true);
             Player.coinIdx++;
             Player.getGUI().getCoinDisplay().updateImage();
         }
