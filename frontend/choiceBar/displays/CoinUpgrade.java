@@ -134,16 +134,22 @@ public class CoinUpgrade extends Cover
         jp2.add(jp2Img);
 
         Cover dis = this;
-        JButton btn = new JButton("Upgrade");
+        JButton btn = new JButton();
         btn.setBackground(Color.CYAN);
+
+        JLabel btnTxt = new JLabel("Upgrade");
+        btnTxt.setHorizontalAlignment(JLabel.CENTER);
+        btnTxt.setVerticalAlignment(JLabel.CENTER);
+        btnTxt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        btnTxt.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
+
+        btn.add(btnTxt);
         //btn.setBackground(new Color(25, 25, 25));
         btn.addMouseListener(new MouseListener(){
             public void mouseClicked(MouseEvent e) {
                 //Note: CHange it to Player.getCash() > Player.nextCoin later
                 if (Player.nextCoin() != null && Player.getCash() < Player.nextCoin().calculatePrice())
                 {
-                    //To do: add doge coin
-                    //Since we upgraded the coin, this getUnlockPrice woud be the unlock price of the coin we intended
                     Player.upgradeCoin();
                     Player.setCash(Player.getCash() - Player.getCoin().getUnlockPrice());
                     dis.exit();
@@ -167,12 +173,12 @@ public class CoinUpgrade extends Cover
         if (Player.nextCoin() == null)
         {
             btn.setEnabled(false);
-            btn.setText("This is the maximum Upgrade");
+            btnTxt.setText("This is the maximum Upgrade");
         }
         else if (Player.getCash() < Player.nextCoin().calculatePrice())
         {
             btn.setEnabled(false);
-            btn.setText("Insufficient Funds");
+            btnTxt.setText("Insufficient Funds");
         }
 
         //jp1.setBorder(new LineBorder(Color.BLACK));
