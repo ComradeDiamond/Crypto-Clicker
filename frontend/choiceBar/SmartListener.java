@@ -2,6 +2,7 @@ package frontend.choiceBar;
 
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 import java.awt.Dimension;
 
 /**
@@ -46,10 +47,12 @@ public class SmartListener implements MouseListener
     public void mouseExited(MouseEvent e) {
         this.target.setPreferredSize(new Dimension(80, 80));
         this.target.adjustImageSize(80, 80);
+        this.target.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
     }
 
     public void mouseEntered(MouseEvent e) {
         this.target.setPreferredSize(new Dimension(100, 100));      
         this.target.adjustImageSize(100, 100);  
+        this.target.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 }

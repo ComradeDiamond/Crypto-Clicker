@@ -147,7 +147,7 @@ public class CoinUpgrade extends Cover
         btn.addMouseListener(new MouseListener(){
             public void mouseClicked(MouseEvent e) {
                 //Note: CHange it to Player.getCash() > Player.nextCoin later
-                if (Player.nextCoin() != null && Player.getCash() >= Player.nextCoin().calculatePrice())
+                if (Player.nextCoin() != null && Player.getCash() >= Player.nextCoin().getUnlockPrice())
                 {
                     Player.upgradeCoin();
                     Player.setCash(Player.getCash() - Player.getCoin().getUnlockPrice());

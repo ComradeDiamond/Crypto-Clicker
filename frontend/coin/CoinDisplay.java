@@ -5,6 +5,7 @@ import gameNav.*;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.Cursor;
 
 /**
  * Displays the dogecoin! Ok... maybe not the doge coin at first
@@ -27,7 +28,7 @@ public class CoinDisplay extends JLabel
         this.setVerticalAlignment(JLabel.CENTER);
         this.setBounds(700, 150, 500, 350);
         //this.setPreferredSize(new Dimension(500, 350));
-
+        CoinDisplay dis = this;
         /*
             Responds to button clicks.
             Translated bc I can't read this java mess:
@@ -53,9 +54,11 @@ public class CoinDisplay extends JLabel
             }
 
             public void mouseExited(MouseEvent e) {
+                dis.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
 
             public void mouseEntered(MouseEvent e) {
+                dis.setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
         });
     }
