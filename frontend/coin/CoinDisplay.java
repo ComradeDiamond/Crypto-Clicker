@@ -42,11 +42,6 @@ public class CoinDisplay extends JLabel
                 PlayerActions.click();
             }
 
-            //Yes we're never going to use you smh
-            //Pls stop with the warnings pls vsc 🥺
-            public void mouseExit(MouseEvent e) {
-            }
-
             public void mouseReleased(MouseEvent e) {
             }
 

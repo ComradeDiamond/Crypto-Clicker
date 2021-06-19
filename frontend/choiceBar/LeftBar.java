@@ -24,5 +24,6 @@ public class LeftBar extends JPanel
         this.setAlignmentX(JPanel.CENTER_ALIGNMENT);
         this.setPreferredSize(new Dimension(100, 465));
         this.add(new Upgrade());
+        this.add(new Project());
     }
 }

@@ -1,7 +1,6 @@
 package frontend.choiceBar.buttons;
 
 import frontend.choiceBar.displays.CoinUpgrade;
-import frontend.choiceBar.displays.Cover;
 import java.awt.event.MouseEvent;
 import frontend.choiceBar.*;
 
