@@ -1,8 +1,7 @@
 package frontend.choiceBar.displays;
 import javax.swing.*;
 import javax.swing.border.*;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.awt.*;
 import gameNav.Player;
 
@@ -140,15 +139,15 @@ public class CoinUpgrade extends Cover
         JLabel btnTxt = new JLabel("Upgrade");
         btnTxt.setHorizontalAlignment(JLabel.CENTER);
         btnTxt.setVerticalAlignment(JLabel.CENTER);
-        btnTxt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        btnTxt.setBorder(new EmptyBorder(15, 15, 15, 15));
         btnTxt.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
 
         btn.add(btnTxt);
-        //btn.setBackground(new Color(25, 25, 25));
+        btn.setBackground(new Color(64, 214, 255));
         btn.addMouseListener(new MouseListener(){
             public void mouseClicked(MouseEvent e) {
                 //Note: CHange it to Player.getCash() > Player.nextCoin later
-                if (Player.nextCoin() != null && Player.getCash() < Player.nextCoin().calculatePrice())
+                if (Player.nextCoin() != null && Player.getCash() >= Player.nextCoin().calculatePrice())
                 {
                     Player.upgradeCoin();
                     Player.setCash(Player.getCash() - Player.getCoin().getUnlockPrice());
@@ -163,10 +162,14 @@ public class CoinUpgrade extends Cover
             }
         
             public void mouseExited(MouseEvent e) {
+                btn.setBackground(new Color(64, 214, 255));
+                btn.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
         
             public void mouseEntered(MouseEvent e) { 
                 //Hex code
+                btn.setBackground(new Color(23, 166, 255));
+                btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
         });
         btn.setBorder(new LineBorder(Color.BLUE));
@@ -175,10 +178,10 @@ public class CoinUpgrade extends Cover
             btn.setEnabled(false);
             btnTxt.setText("This is the maximum Upgrade");
         }
-        else if (Player.getCash() < Player.nextCoin().calculatePrice())
+        else if (Player.getCash() < Player.nextCoin().getUnlockPrice())
         {
             btn.setEnabled(false);
-            btnTxt.setText("Insufficient Funds");
+            btnTxt.setText("Insufficient Funds - This costs $" + Player.nextCoin().getUnlockPrice());
         }
 
         //jp1.setBorder(new LineBorder(Color.BLACK));
