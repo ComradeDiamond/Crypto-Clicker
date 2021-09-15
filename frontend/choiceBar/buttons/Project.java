@@ -20,7 +20,7 @@ public class Project extends Choicer
         super("Open up the projects tab and execute some operations", "images/Project.png");
         super.addMouseListener(new SmartListener(this) {
             public void mouseClicked(MouseEvent e) {
-                new Cover().display();
+                new ProjectUpgrade().display();
             }
         });
     }

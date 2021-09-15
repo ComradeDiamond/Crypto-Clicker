@@ -123,7 +123,6 @@ public class GUI extends JFrame
         this.pane.remove(component);
         this.pane.revalidate();
         this.pane.repaint();
-        System.out.print("Yeeted");
     }
     
     /**
