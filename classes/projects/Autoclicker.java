@@ -2,6 +2,8 @@ package classes.projects;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.awt.Color;
+import gameNav.Player;
 import gameNav.PlayerActions;
 import frontend.choiceBar.displays.Cover;
 
@@ -17,7 +19,7 @@ public class Autoclicker extends Project
     /**
      * How many times the autoclicker clicks
      */
-    protected int tickerations = 250;
+    protected int tickerations;
 
     /**
      * Constructor for Autoclicker
@@ -27,7 +29,9 @@ public class Autoclicker extends Project
     {
         super("Autoclicker 2000", 
         "Too lazy to install an autoclicker? This will perform 250 clicks for you. The JustinWare Corporation is not liable for any stock market crashes.", 
-        500, 1, "images/Autoclicker.png");
+        500, 1, "images/Autoclicker.png", Color.GREEN);
+
+        this.tickerations = 250;
     }
 
     /**
@@ -57,6 +61,15 @@ public class Autoclicker extends Project
                 }
             }
         }, 0, 30);
+    }
+
+    /**
+     * Determines display for autoclicker
+     * @return whether or not it's litecoin
+     */
+    public boolean determineDisplay()
+    {
+        return Player.getCoin().getName().equals("Litecoin");
     }
 
     /**

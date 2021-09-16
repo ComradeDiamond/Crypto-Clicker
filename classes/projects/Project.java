@@ -1,5 +1,7 @@
 package classes.projects;
 
+import java.awt.Color;
+
 /**
  * The base template for all projects that could be constructed or initiated.
  * @author Justin
@@ -43,14 +45,20 @@ public class Project
     protected int numClicked;
 
     /**
+     * The display header color for this project
+     */
+    protected Color color;
+
+    /**
      * Constructs the base project.
      * @param name Le name of le project
      * @param desc Le description
      * @param cost Le base cost
      * @param maxExec Le max exec time
      * @param image Le path to le image
+     * @param color Le color to highlight over
      */
-    public Project(String name, String desc, double cost, int maxExec, String image)
+    public Project(String name, String desc, double cost, int maxExec, String image, Color color)
     {
         this.name = name;
         this.description = desc;
@@ -58,7 +66,17 @@ public class Project
         this.maxExec = maxExec;
         this.image = image;
         this.numClicked = 0;
+        this.color = color;
     }    
+
+    /**
+     * Returns the display color that will be used to highlight
+     * @return this.color
+     */
+    public Color getDisplayColor()
+    {
+        return this.color;
+    }
 
     /**
      * Calculates the cost of the project. 

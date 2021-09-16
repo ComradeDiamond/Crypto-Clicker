@@ -20,7 +20,8 @@ public class ProjectUpgrade extends Cover
      * Whether or not they will appear though... depends on Project.prototype.determineDisplay
      */
     private static Map<String, Project> projects = Map.ofEntries(
-        Map.entry("Autoclicker", new Autoclicker())
+        Map.entry("Autoclicker", new Autoclicker()),
+        Map.entry("Autoclicker2", new Autoclicker2())
     );
 
     /**
@@ -122,7 +123,7 @@ public class ProjectUpgrade extends Cover
 
                 ProjectButton jp1Btn = new ProjectButton(el);      
 
-                jp1Word.setBackground(Color.GREEN);
+                jp1Word.setBackground(el.getDisplayColor());
                 jp1Word.add(jp1Title);
                 jp1Word.add(jp1Text);
                 jp1.add(jp1Img);
