@@ -40,10 +40,10 @@ public class Autoclicker extends Project
 
         Cover.getCover().exit();
         Timer fakeTimer = new Timer();
-        int tickerz = this.tickerations;
+        Autoclicker thing = this;
 
         fakeTimer.scheduleAtFixedRate(new TimerTask(){
-            private int tick = tickerz;
+            private int tick = thing.tickerations;
             public void run()
             {
                 if (this.tick == 0)
@@ -52,13 +52,11 @@ public class Autoclicker extends Project
                 }
                 else
                 {
-                    PlayerActions.click();
+                    PlayerActions.autoclick();
                     this.tick -= 1;
                 }
             }
         }, 0, 30);
-
-        this.numClicked++;
     }
 
     /**

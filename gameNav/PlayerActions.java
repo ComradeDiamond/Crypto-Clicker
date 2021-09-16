@@ -35,6 +35,17 @@ public class PlayerActions
     }
 
     /**
+     * Click, but it's for the autoclicker so people don't use it to recalibrate everything
+     */
+    public static void autoclick()
+    {
+        double initIncome = Player.getCoin().calculatePrice();
+        double income = Player.getCoin().click();
+        PlayerActions.tax(income);
+        Player.getGUI().getStatBar().updateDisplays(income > initIncome);
+    }
+
+    /**
      * Taxes the player.
      * This will loop through all taxes the player has on them and slowly apply them all.
      * @param income The money the player made

@@ -137,4 +137,12 @@ public class Project
         this.numClicked = 0;
         return true;
     }
+
+    /**
+     * Increment numClicked by 1
+     */
+    public void addNumClicked()
+    {
+        this.numClicked++;
+    }
 }

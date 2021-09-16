@@ -70,6 +70,7 @@ public class ProjectButton extends JButton
             public void mouseClicked(MouseEvent e) {
                 el.initiate();
 
+                el.addNumClicked();
                 ProjectUpgrade.allChecked = false;
             }
         
