@@ -4,7 +4,6 @@ import gameNav.Player;
 
 /**
  * If you have too much $, you get taxed
- * This tax is progressive.
  * This class does NOT use the superclass tax rate attribute. It uses its own custom tax rate
  * @author Justin
  * @since 4/15/21
@@ -75,7 +74,7 @@ public class WealthTax extends Tax
     }
 
     /**
-     * Enacts the progressive tax.
+     * Enacts the tax.
      * @override Tax.prototype.enact();
      */
     public void enact()

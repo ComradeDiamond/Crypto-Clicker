@@ -1,6 +1,7 @@
 package gameNav;
 import classes.tax.Tax;
 //import frontend.statBar.StatBar;
+import frontend.choiceBar.displays.ProjectUpgrade;
 
 /**
  * It's supposed to be game.java, but that doesn't rly exist in swing version.
@@ -18,6 +19,7 @@ public class PlayerActions
      * Ok ok we're actually stimulating a crypto coin click.
      * Note that coins also have their own seperate click function that will be called.
      * When you click, there's more things that happen that just a click that the coin itself doesn't manage.
+     * This will also recalibrate projects.
      * Like taxes
      * @see Coin.prototype.click
      */
@@ -29,6 +31,7 @@ public class PlayerActions
 
         PlayerActions.tax(income);
         Player.getGUI().getStatBar().updateDisplays(income > initIncome);
+        ProjectUpgrade.recalibrateAll();
     }
 
     /**

@@ -15,14 +15,19 @@ import frontend.choiceBar.displays.Cover;
 public class Autoclicker extends Project
 {
     /**
+     * How many times the autoclicker clicks
+     */
+    protected int tickerations = 250;
+
+    /**
      * Constructor for Autoclicker
      * Precondition: Cover.currentCover is not null
      */
     public Autoclicker()
     {
         super("Autoclicker 2000", 
-        "Too lazy to install an autoclicker? This will perform 500 clicks for you. This may backfire.", 
-        500, 1, "images/Autoclick.png");
+        "Too lazy to install an autoclicker? This will perform 250 clicks for you. The JustinWare Corporation is not liable for any stock market crashes.", 
+        500, 1, "images/Autoclicker.png");
     }
 
     /**
@@ -35,9 +40,10 @@ public class Autoclicker extends Project
 
         Cover.getCover().exit();
         Timer fakeTimer = new Timer();
+        int tickerz = this.tickerations;
 
         fakeTimer.scheduleAtFixedRate(new TimerTask(){
-            private int tick = 500;
+            private int tick = tickerz;
             public void run()
             {
                 if (this.tick == 0)
@@ -50,6 +56,23 @@ public class Autoclicker extends Project
                     this.tick -= 1;
                 }
             }
-        }, 0, 50);
+        }, 0, 30);
+
+        this.numClicked++;
+    }
+
+    /**
+     * Recalibrates use of the autoclicker.
+     * Every click has a 10% chance of restoring the autoclicker.
+     * @return whether this is already calibrated
+     */
+    public boolean recalibrate()
+    {
+        if ((int)(Math.random() * 10) == 5) 
+        {
+            this.numClicked = 0;
+        }
+
+        return this.numClicked == 0;
     }
 }

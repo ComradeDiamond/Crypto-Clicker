@@ -127,4 +127,14 @@ public class Project
      * This function is meant to be overridden.
      */
     public void initiate() {}
+
+    /**
+     * Recalibrates the numClicked, or in other words, resets that thing. 
+     * @return whether or not the calibration is 0
+     */
+    public boolean recalibrate()
+    {
+        this.numClicked = 0;
+        return true;
+    }
 }

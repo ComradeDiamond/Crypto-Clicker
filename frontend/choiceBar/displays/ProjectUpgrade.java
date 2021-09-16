@@ -1,12 +1,11 @@
 package frontend.choiceBar.displays;
 import javax.swing.*;
 import javax.swing.border.*;
-
+import java.util.Map;
 import frontend.choiceBar.CustomScroll;
 import frontend.choiceBar.ProjectButton;
 import classes.projects.*;
 import java.awt.*;
-import gameNav.Player;
 
 /**
  * Project Update Panel that... well... allows you to take on projects.
@@ -20,9 +19,35 @@ public class ProjectUpgrade extends Cover
      * Array of projects that could be used later on.
      * Whether or not they will appear though... depends on Project.prototype.determineDisplay
      */
-    private static Project[] projects = new Project[] {
-        new Autoclicker()
-    };
+    private static Map<String, Project> projects = Map.ofEntries(
+        Map.entry("Autoclicker", new Autoclicker())
+    );
+
+    /**
+     * For optimization - whether or not all projects are not on cooldown
+     */
+    public static boolean allChecked = true;
+
+    /**
+     * Recalibrate all project click time. 
+     * The calibrating system works differently - you only have a chance to recalibrate when clicking.
+     * That chance isn't too big...
+     */
+    public static void recalibrateAll()
+    {
+        if (ProjectUpgrade.allChecked) {
+            return;
+        }
+
+        ProjectUpgrade.allChecked = true;
+        for (Project el : ProjectUpgrade.projects.values())
+        {
+            if (!el.recalibrate())
+            {
+                ProjectUpgrade.allChecked = false;
+            }
+        }
+    }
 
     /**
      * Constructs le project cover
@@ -60,7 +85,7 @@ public class ProjectUpgrade extends Cover
         final int IMAGEWIDTH = 80;
         int netWidth = this.tpLength - IMAGEWIDTH - IMAGEWIDTH;
 
-        for (Project el : projects)
+        for (Project el : ProjectUpgrade.projects.values())
         {
             if (el.determineDisplay())
             {

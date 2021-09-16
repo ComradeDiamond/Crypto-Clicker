@@ -4,6 +4,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 import classes.projects.Project;
+import frontend.choiceBar.displays.ProjectUpgrade;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
@@ -32,7 +34,7 @@ public class ProjectButton extends JButton
         final Color SILVER = new Color(169, 169, 169);
 
         //Determine if buttons should be active or not later on
-        boolean goodBtn = el.canClick() || Player.getCash() >= el.calculateCost();
+        boolean goodBtn = el.canClick() && Player.getCash() >= el.calculateCost();
         String reason;
 
         if (el.canClick())
@@ -43,12 +45,12 @@ public class ProjectButton extends JButton
             }
             else
             {
-                reason = "Insufficient Funds\n$" + StatLabel.calibrate(el.calculateCost());
+                reason = "$" + StatLabel.calibrate(el.calculateCost());
             }
         }
         else
         {
-            reason = "Project already initiated.";
+            reason = "On Cooldown";
         }
 
         this.setBackground(goodBtn ? SKYBLUE : GREY);
@@ -67,6 +69,8 @@ public class ProjectButton extends JButton
         this.addMouseListener(new MouseListener(){
             public void mouseClicked(MouseEvent e) {
                 el.initiate();
+
+                ProjectUpgrade.allChecked = false;
             }
         
             public void mouseReleased(MouseEvent e) {

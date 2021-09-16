@@ -69,12 +69,39 @@ public class Player
     }
 
     /**
+     * Alternative changeCash
+     * @param num num 😂 literally. That's what I mean.
+     * @param refresh Whether or not to refresh the display
+     */
+    public static void changeCash(double num, boolean refresh)
+    {
+        Player.cash += num;
+        if (refresh) 
+        {
+            Player.getGUI().getStatBar().updateDisplays(true);
+        }
+    }
+
+    /**
      * Mutator method for Player.cash
      * @param num Number to set cash to
      */
     public static void setCash(double num)
     {
         Player.cash = num;
+    }
+
+    /**
+     * Mutator method for Player.cash, but you determine if you want to refresh frontend
+     * @param num Number to set cash to
+     */
+    public static void setCash(double num, boolean refresh)
+    {
+        Player.cash = num;
+        if (refresh)
+        {
+            Player.getGUI().getStatBar().updateDisplays(true);
+        }
     }
 
     /**
