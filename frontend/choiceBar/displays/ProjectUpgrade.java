@@ -1,7 +1,10 @@
 package frontend.choiceBar.displays;
 import javax.swing.*;
 import javax.swing.border.*;
-import java.awt.event.*;
+
+import frontend.choiceBar.CustomScroll;
+import frontend.choiceBar.ProjectButton;
+import classes.projects.*;
 import java.awt.*;
 import gameNav.Player;
 
@@ -14,12 +17,25 @@ import gameNav.Player;
 public class ProjectUpgrade extends Cover
 {
     /**
+     * Array of projects that could be used later on.
+     * Whether or not they will appear though... depends on Project.prototype.determineDisplay
+     */
+    private static Project[] projects = new Project[] {
+        new Autoclicker()
+    };
+
+    /**
      * Constructs le project cover
      */
     public ProjectUpgrade()
     {
         super();
         JPanel centerPane = new JPanel();
+        JScrollPane scrollPane = new JScrollPane(centerPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        //This code is used to test scrollbar design
+        //JScrollPane scrollPane = new JScrollPane(centerPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.getVerticalScrollBar().setUI(new CustomScroll());
+        scrollPane.getHorizontalScrollBar().setUI(new CustomScroll());
         centerPane.setBorder(new EmptyBorder(40, 20, 40, 20));
         centerPane.setLayout(new BoxLayout(centerPane, BoxLayout.PAGE_AXIS));
         centerPane.setBackground(Color.WHITE);
@@ -41,7 +57,58 @@ public class ProjectUpgrade extends Cover
         titleDesc.setAlignmentX(JLabel.CENTER_ALIGNMENT);
         centerPane.add(titleDesc);
 
-        this.getTextPanel().add(centerPane, BorderLayout.CENTER);
+        final int IMAGEWIDTH = 80;
+        int netWidth = this.tpLength - IMAGEWIDTH - IMAGEWIDTH;
+
+        for (Project el : projects)
+        {
+            if (el.determineDisplay())
+            {
+                //Create display panel. Typical stuff.
+                JPanel jp1 = new JPanel();
+                jp1.setBackground(Color.WHITE);
+                jp1.setBorder(new EmptyBorder(14, 0, 0, 0));
+                jp1.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 0));
+                
+                JLabel jp1Img = new JLabel();
+                ImageIcon imgIcon = new ImageIcon(new ImageIcon(el.getImage()).getImage().getScaledInstance(IMAGEWIDTH, IMAGEWIDTH, 16));
+                jp1Img.setIcon(imgIcon);
+                jp1Img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+                jp1Img.setAlignmentY(JLabel.CENTER_ALIGNMENT);
+                jp1Img.setBorder(new EmptyBorder(10, 5, 0, 0));
+
+                JPanel jp1Word = new JPanel();
+                jp1Word.setBackground(Color.WHITE);
+                jp1Word.setLayout(new BoxLayout(jp1Word, BoxLayout.PAGE_AXIS));
+                int prefHeight = jp1Word.getPreferredSize().height;
+                jp1Word.setSize(netWidth, prefHeight);
+
+                JLabel jp1Title = new JLabel(el.getName());
+                jp1Title.setFont(new Font("Trebuchet ms", Font.BOLD, 20));
+                jp1Title.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
+
+                JTextArea jp1Text = new JTextArea();
+                jp1Text.setEditable(false);
+                jp1Text.setWrapStyleWord(true);
+                jp1Text.setLineWrap(true);
+                jp1Text.setText(el.getDesc());
+                jp1Text.setFont(new Font("Trebuchet ms", Font.PLAIN, 16));
+                jp1Text.setColumns(35); 
+
+                ProjectButton jp1Btn = new ProjectButton(el);      
+
+                jp1Word.setBackground(Color.GREEN);
+                jp1Word.add(jp1Title);
+                jp1Word.add(jp1Text);
+                jp1.add(jp1Img);
+                jp1.add(jp1Word);
+                jp1.add(jp1Btn);
+
+                centerPane.add(jp1);
+            }
+        }
+        
+        this.getTextPanel().add(scrollPane, BorderLayout.CENTER);
         this.revalidate();
         this.repaint();
     }

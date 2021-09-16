@@ -40,12 +40,20 @@ public class Cover extends JPanel
     protected Choicer exitBtn;
 
     /**
+     * The current cover that is being displayed.
+     * If none exists, this will just return null.
+     */
+    private static Cover currentCover = null;
+
+    /**
      * Constructs a cover object.
      * This is hidden by default
      */
     public Cover()
     {
         super();
+        Cover.currentCover = this;
+
         this.setBounds(0, 0, Player.getGUI().getX(), Player.getGUI().getY()); //Full screen
         this.setBackground(new Color(77, 77, 77, 20));
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
@@ -77,6 +85,15 @@ public class Cover extends JPanel
         exit.setBounds(this.tpLength - exitRadius - 10, 5, exitRadius, exitRadius);
         this.textPanel.add(exit);
         this.add(this.textPanel);
+    }
+
+    /**
+     * Returns the current cover
+     * @return Cover.currentCover
+     */
+    public static Cover getCover()
+    {
+        return Cover.currentCover;
     }
 
     /**
@@ -112,5 +129,7 @@ public class Cover extends JPanel
         this.destroy();
         Player.getGUI().revalidate();
         Player.getGUI().repaint();
+
+        Cover.currentCover = null;
     }
 }

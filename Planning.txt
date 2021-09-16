@@ -37,12 +37,6 @@ Binary Currency --> You're immune to international and foreign taxes.
 Diamond Hands --> You don't sell. You're immune to capital gains taxes.
 Cryptography --> Immune to all taxes
 
-Consolidation --> Establish a company
-Bribery --> Halfs foreign tax rates until 1% for the next click. Can be reresearched.
-Lobbying --> Halfs tax rates until 1% for the next click. Can be reresearched.
-Worker's Cooperation --> Everyone in your company owns stocks. Corporate taxes is nonexistant.
-Day Traders --> Corporation no longer exists, now reddit owns it. Progressive taxes are now nonexistant and you have a 5% flat tax
-
 //Get stonks - this is an instant drastic burst of people investing
 Wall Street Bets --> Your currency will never inflate - hopefully.
 Doge Takeover - The power of the doge prevents stock from going down
@@ -60,6 +54,7 @@ Minty - The disgwaceful mint that set up a private trading company will now stea
 Sponsor Stans - Get some more stans to invest in dogecoin
 Panic Button - Resets dogecoin price to $0.1. Lose all investors.
 Doge Army - Instead of the 9 year old army, summon the gang of memers
+Techno Support - TECHNOBLADE NEVER DIES
 
 **Coin upgrades**
 Premium Doge!
