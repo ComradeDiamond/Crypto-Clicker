@@ -22,7 +22,8 @@ public class ProjectUpgrade extends Cover
     private static Map<String, Project> projects = Map.ofEntries(
         Map.entry("Autoclicker", new Autoclicker()),
         Map.entry("Autoclicker2", new Autoclicker2()),
-        Map.entry("CPUpgrade", new CPUpgrade())
+        Map.entry("CPUpgrade", new CPUpgrade()),
+        Map.entry("Forex", new Forex())
     );
 
     /**
@@ -94,11 +95,6 @@ public class ProjectUpgrade extends Cover
                 //Create display panel. Typical stuff.
                 JPanel jp1 = new JPanel();
                 jp1.setBackground(Color.WHITE);
-
-                if (el.getName().equals("Autoclicker 2000"))
-                {
-                    jp1.setBackground(Color.WHITE);
-                }
                 jp1.setBorder(new EmptyBorder(20, 0, 0, 0));
                 jp1.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 0));
                 
@@ -117,7 +113,8 @@ public class ProjectUpgrade extends Cover
 
                 JLabel jp1Title = new JLabel(el.getName());
                 jp1Title.setFont(new Font("Trebuchet ms", Font.BOLD, 20));
-                jp1Title.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
+                jp1Title.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+                jp1Title.setBorder(new EmptyBorder(0, 5, 0, 0));
 
                 JTextArea jp1Text = new JTextArea();
                 jp1Text.setEditable(false);
@@ -126,6 +123,7 @@ public class ProjectUpgrade extends Cover
                 jp1Text.setText(el.getDesc());
                 jp1Text.setFont(new Font("Trebuchet ms", Font.PLAIN, 16));
                 jp1Text.setColumns(35); 
+                jp1Text.setAlignmentX(JPanel.LEFT_ALIGNMENT);
 
                 ProjectButton jp1Btn = new ProjectButton(el);      
 
