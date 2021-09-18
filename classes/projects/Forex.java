@@ -41,8 +41,9 @@ public class Forex extends Project
      */
     public double calculateCost()
     {
-        int requiem = (int)(this.maxPercent * Player.getCoin().getSupply());
-        return requiem * Player.getCoin().calculatePrice() * (1 - Math.max(discount, 80));
+        /*int requiem = (int)(this.maxPercent * Player.getCoin().getSupply());
+        return requiem * Player.getCoin().calculatePrice() * (1 - Math.max(discount, .8));*/
+        return 0;
     }
 
     /**
@@ -52,7 +53,7 @@ public class Forex extends Project
     public void initiate()
     {
         int tfp = Player.getCoin().getSupply();
-        Player.getCoin().setSupply((int)(tfp * this.maxPercent));
+        Player.getCoin().setSupply((int)(tfp * (1 - this.maxPercent)));
 
         if (this.maxPercent < 1)
         {
