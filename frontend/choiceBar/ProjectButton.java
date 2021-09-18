@@ -10,7 +10,6 @@ import java.awt.Font;
 import java.awt.event.*;
 import java.awt.Cursor;
 import gameNav.Player;
-import gameNav.PlayerActions;
 import gameNav.StatLabel;
 
 /**
@@ -22,17 +21,19 @@ import gameNav.StatLabel;
  */
 public class ProjectButton extends JButton
 {
-    /**
-     * Constructs a project button with cost and "displayability" pre-set and adjusted
-     * @param el The project object this button is for
-     */
-    public ProjectButton(Project el)
-    {
-        final Color SKYBLUE = new Color(135, 206, 250);
-        final Color REALLYSKYBLUE = new Color(0, 191, 255);
-        final Color GREY = new Color(245, 245, 245);
-        final Color SILVER = new Color(169, 169, 169);
+    private static final Color SKYBLUE = new Color(135, 206, 250);
+    private static final Color REALLYSKYBLUE = new Color(0, 191, 255);
+    private static final Color GREY = new Color(245, 245, 245);
+    private static final Color SILVER = new Color(169, 169, 169);
+    private MouseListener listener;
 
+    /**
+     * Updates the display of a ProjectButton
+     * @param el The project obj this button is for
+     * @param btn The Project button display you're updating
+     */
+    private static void updateDisplay(ProjectButton btn, Project el)
+    {
         //Determine if buttons should be active or not later on
         boolean goodBtn = el.canClick() && Player.getCash() >= el.calculateCost();
         String reason;
@@ -53,20 +54,23 @@ public class ProjectButton extends JButton
             reason = "On Cooldown";
         }
 
-        this.setBackground(goodBtn ? SKYBLUE : GREY);
+        btn.setBackground(goodBtn ? SKYBLUE : GREY);
+        btn.removeAll();
         JLabel btnTxt = new JLabel(reason);
         btnTxt.setBorder(new EmptyBorder(10, 10, 10, 10)); 
         btnTxt.setHorizontalAlignment(JButton.CENTER);
         btnTxt.setVerticalAlignment(JButton.CENTER);
         btnTxt.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
         btnTxt.setForeground(goodBtn ? Color.WHITE : SILVER);
-        this.add(btnTxt); 
+        btn.add(btnTxt); 
+        if (!goodBtn) btn.setEnabled(false);
+        
+        if (btn.listener != null)
+        {
+            btn.removeMouseListener(btn.listener);
+        }
 
-        JButton btn = this;
-        if (!goodBtn) this.setEnabled(false);
-
-        //Event listener for btn now
-        this.addMouseListener(new MouseListener(){
+        btn.listener = new MouseListener() {
             public void mouseClicked(MouseEvent e) {
                 if (goodBtn)
                 {
@@ -74,6 +78,9 @@ public class ProjectButton extends JButton
                     Player.changeCash(-1 * el.getCost());
                     el.addNumClicked();
                     ProjectUpgrade.allChecked = false;
+                    ProjectButton.updateDisplay(btn, el);
+                    btn.repaint();
+                    Player.getGUI().getStatBar().updateDisplays(true);
                 }
             }
         
@@ -102,6 +109,18 @@ public class ProjectButton extends JButton
                     btn.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 }
             }
-        });
+        };
+
+        btn.addMouseListener(btn.listener);
+    }
+
+    /**
+     * Constructs a project button with cost and "displayability" pre-set and adjusted.
+     * This uses the static method in the ProjectButton class.
+     * @param el The project object this button is for
+     */
+    public ProjectButton(Project el)
+    {
+        ProjectButton.updateDisplay(this, el);
     }
 }

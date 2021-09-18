@@ -19,7 +19,7 @@ public class CPUpgrade extends Project
     public CPUpgrade()
     {
         super("Computing Optimization", "Heavy investments in CPU optimization enhances your cryptocurrency's means of exchanging computing power.",
-        100, 1, null, Color.YELLOW);
+        100, 1, "images/GamerGirl.jpg", Color.YELLOW);
     }
 
     /**
@@ -29,7 +29,8 @@ public class CPUpgrade extends Project
      */
     public double calculateCost()
     {
-        return Math.pow(Player.getCoin().getUnlockPrice(), Player.getCoin().getUpdate() + 1);
+        return Player.getCoin().getUnlockPrice() * Math.pow(2, Player.getCoin().getUpdate());
+        //return Math.pow(Player.getCoin().getUnlockPrice(), Player.getCoin().getUpdate() + 1);
     }
 
     /**
@@ -56,6 +57,7 @@ public class CPUpgrade extends Project
     {
         if (!this.canClick()) return;
         double val = Player.getCoin().getValue() * (1 + Math.max(0.35, Math.random()));
+        Player.getCoin().noteUpdate();
         Player.getCoin().setValue(val);
     }
 }

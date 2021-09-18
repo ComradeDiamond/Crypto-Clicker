@@ -79,6 +79,7 @@ public class Coin {
         this.lore = lore;
         this.supply = 0;
         this.modify = 0;
+        this.updated = 0;
     }
 
     /**

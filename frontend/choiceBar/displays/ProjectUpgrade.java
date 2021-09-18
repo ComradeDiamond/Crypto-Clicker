@@ -21,7 +21,8 @@ public class ProjectUpgrade extends Cover
      */
     private static Map<String, Project> projects = Map.ofEntries(
         Map.entry("Autoclicker", new Autoclicker()),
-        Map.entry("Autoclicker2", new Autoclicker2())
+        Map.entry("Autoclicker2", new Autoclicker2()),
+        Map.entry("CPUpgrade", new CPUpgrade())
     );
 
     /**
@@ -93,7 +94,12 @@ public class ProjectUpgrade extends Cover
                 //Create display panel. Typical stuff.
                 JPanel jp1 = new JPanel();
                 jp1.setBackground(Color.WHITE);
-                jp1.setBorder(new EmptyBorder(14, 0, 0, 0));
+
+                if (el.getName().equals("Autoclicker 2000"))
+                {
+                    jp1.setBackground(Color.WHITE);
+                }
+                jp1.setBorder(new EmptyBorder(20, 0, 0, 0));
                 jp1.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 0));
                 
                 JLabel jp1Img = new JLabel();
@@ -101,7 +107,7 @@ public class ProjectUpgrade extends Cover
                 jp1Img.setIcon(imgIcon);
                 jp1Img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
                 jp1Img.setAlignmentY(JLabel.CENTER_ALIGNMENT);
-                jp1Img.setBorder(new EmptyBorder(10, 5, 0, 0));
+                jp1Img.setBorder(new EmptyBorder(0, 5, 0, 0));
 
                 JPanel jp1Word = new JPanel();
                 jp1Word.setBackground(Color.WHITE);
@@ -129,6 +135,8 @@ public class ProjectUpgrade extends Cover
                 jp1.add(jp1Img);
                 jp1.add(jp1Word);
                 jp1.add(jp1Btn);
+
+                jp1.setMaximumSize(new Dimension(jp1.getMaximumSize().width, 110));
 
                 centerPane.add(jp1);
             }
