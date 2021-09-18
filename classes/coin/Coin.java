@@ -35,6 +35,11 @@ public class Coin {
     private double modify;
 
     /**
+     * Number of times the coin value here is updated
+     */
+    private int updated;
+
+    /**
      * The path to the coin image
      */
     private String image;
@@ -234,7 +239,7 @@ public class Coin {
             this.investors += infl;
         }
 
-        this.supply += (int)(this.investors * (Math.random() * 2 + 1));
+        this.supply += (int)(this.investors * (Math.random() * 1.5 + 1));
     }
 
     /**
@@ -249,5 +254,30 @@ public class Coin {
         this.influenceCalc();
 
         return this.calculatePrice();
+    }
+
+    /**
+     * Record an increment in the update
+     */
+    public void noteUpdate()
+    {
+        this.updated++;
+    }
+
+    /**
+     * Mutator method for this.value
+     * @param val The value to set to
+     */
+    public void setValue(double val)
+    {
+        this.value = val;
+    }
+
+    /**
+     * @return this.updated
+     */
+    public int getUpdate()
+    {
+        return this.updated;
     }
 }
