@@ -5,12 +5,12 @@ import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 import classes.projects.Project;
 import frontend.choiceBar.displays.ProjectUpgrade;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
 import java.awt.Cursor;
 import gameNav.Player;
+import gameNav.PlayerActions;
 import gameNav.StatLabel;
 
 /**
@@ -68,10 +68,13 @@ public class ProjectButton extends JButton
         //Event listener for btn now
         this.addMouseListener(new MouseListener(){
             public void mouseClicked(MouseEvent e) {
-                el.initiate();
-
-                el.addNumClicked();
-                ProjectUpgrade.allChecked = false;
+                if (goodBtn)
+                {
+                    el.initiate();
+                    Player.changeCash(-1 * el.getCost());
+                    el.addNumClicked();
+                    ProjectUpgrade.allChecked = false;
+                }
             }
         
             public void mouseReleased(MouseEvent e) {
