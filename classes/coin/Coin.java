@@ -210,6 +210,14 @@ public class Coin {
     }
 
     /**
+     * Mutator method for this.supply
+     */
+    public void setSupply(int supply)
+    {
+        this.supply = supply;
+    }
+
+    /**
      * Returns the "lore" of the coin.
      * Basically, it's just a brief description of the coin
      * @return this.lore
@@ -240,7 +248,7 @@ public class Coin {
             this.investors += infl;
         }
 
-        this.supply += (int)(this.investors * (Math.random() * 1.5 + 1));
+        this.supply += (int)(this.investors * Math.random());
     }
 
     /**

@@ -19,7 +19,7 @@ public class CPUpgrade extends Project
     public CPUpgrade()
     {
         super("Computing Optimization", "Heavy investments in CPU optimization enhances your cryptocurrency's means of exchanging computing power.",
-        100, 1, "images/GamerGirl.jpg", Color.YELLOW);
+        100, 1, "images/Cogs.png", Color.YELLOW);
     }
 
     /**
