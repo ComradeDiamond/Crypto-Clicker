@@ -26,7 +26,7 @@ public class Player
      * The money you have
      */
     //private static double cash = 1000000000;
-    private static double cash = 480;
+    private static double cash = 1000;
 
     /**
      * The coin index the current coinArr idx player is at in the coinArr
@@ -66,6 +66,7 @@ public class Player
      */
     public static void changeCash(double num)
     {
+        //System.out.println("$" + num);
         Player.cash += num;
     }
 
@@ -134,6 +135,7 @@ public class Player
         {
             //When we set the new coin, the stats like investors auto-calibrates
             Player.currCoin = Player.nextCoin();
+            Player.changeCash(Player.currCoin.getUnlockPrice() * -1);
             Player.getGUI().getStatBar().updateDisplays(true);
             Player.coinIdx++;
             Player.getGUI().getCoinDisplay().updateImage();

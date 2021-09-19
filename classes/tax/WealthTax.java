@@ -27,8 +27,7 @@ public class WealthTax extends Tax
     private double trills;
 
     /**
-     * If you have more than 1 trillion, the government just taxes you 99%.
-     * Because that sounds like the US government ;)
+     * > 1T
      */
     private double mores;
 
@@ -87,7 +86,7 @@ public class WealthTax extends Tax
         sum += calibrate(cash, 1000000000000.0) * this.trills;
         sum += (cash - (cash % 1000000000000000.0)) * this.mores;
 
-        //System.out.println(sum);
+        System.out.println(sum);
         Player.changeCash(sum * -1);
     }
 

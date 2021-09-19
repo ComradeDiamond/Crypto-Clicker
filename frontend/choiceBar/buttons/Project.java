@@ -23,9 +23,11 @@ public class Project extends Choicer
     public Project()
     {
         super("Open up the projects tab and execute some operations", "images/Project.png");
-        this.pug = new ProjectUpgrade();
-        super.addMouseListener(new SmartListener(this) {
+        Project x = this;
+        this.addMouseListener(new SmartListener(this) {
             public void mouseClicked(MouseEvent e) {
+                ProjectUpgrade pug = new ProjectUpgrade();
+                x.setPug(pug);
                 pug.display();
             }
         });
@@ -38,5 +40,14 @@ public class Project extends Choicer
     public ProjectUpgrade getPug()
     {
         return this.pug;
+    }
+
+    /**
+     * Mutator method for pug
+     * @param pug The project upgrade to set this to
+     */
+    public void setPug(ProjectUpgrade pug)
+    {
+        this.pug = pug;
     }
 }

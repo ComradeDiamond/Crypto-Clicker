@@ -257,8 +257,8 @@ public class Coin {
      */
     public double click()
     {
-        Player.changeCash(this.calculatePrice());
         this.influenceCalc();
+        Player.changeCash(this.calculatePrice());
 
         return this.calculatePrice();
     }

@@ -12,12 +12,18 @@ import gameNav.Player;
 public class Bitcoin extends Coin
 {
     /**
+     * Bitcoin tax rate
+     */
+    private double taxRate;
+    
+    /**
      * Constructs le bitcoin
      */
     public Bitcoin()
     {
         super("Bitcoin", 150, 300, "images/Bitcoin.png", 1000, 
             "The most stable, default, and practical cryptocurrency used in a myriad of exchanges.");
+        this.taxRate = 0.2;
     }
 
     /**
@@ -28,7 +34,7 @@ public class Bitcoin extends Coin
      */
     public double click()
     {
-        Player.changeCash(this.calculatePrice() * -0.2);
+        Player.changeCash(this.calculatePrice() * this.taxRate * -1);
         return super.click();
     }
 }
