@@ -85,7 +85,7 @@ public class ProjectButton extends JButton
                     el.addNumClicked();
                     ProjectUpgrade.allChecked = false;
                     ProjectButton.updateDisplay(btn, el);
-                    btn.repaint();
+                    //btn.repaint();
                     Player.getGUI().getStatBar().updateDisplays(true);
                 }
             }

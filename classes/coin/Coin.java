@@ -235,20 +235,18 @@ public class Coin {
     public void influenceCalc()
     {
         int frenzy = (int)this.calculatePrice() / 1000 + 1;
-        int negPlus = (int) (Math.random() * 5);
-
+        int negPlus = (int) (Math.random() * 6);
         int infl = negPlus == 0 ? (int)(Math.random() * 5) * frenzy * -1 : (int)(Math.random() * 5) * frenzy;
-        
-        if (this.investors + infl < 0) 
+        this.investors = Math.max(0, this.investors + infl);
+
+        if (negPlus == 0)
         {
-            this.investors = 0;
+            this.supply = Math.max(0, this.supply - (int)(this.supply * 0.2 * Math.random()));
         }
         else
         {
-            this.investors += infl;
+            this.supply += (int)(this.investors * Math.random());
         }
-
-        this.supply += (int)(this.investors * Math.random());
     }
 
     /**
