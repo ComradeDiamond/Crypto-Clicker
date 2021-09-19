@@ -13,6 +13,10 @@ import java.awt.Dimension;
  */
 public class LeftBar extends JPanel
 {
+    //We're making this static so we don't need to reconstruct all this stuff twice
+    private static Upgrade upgrade = new Upgrade();
+    private static Project project = new Project();
+
     /**
      * Constructs a left bar
      */
@@ -23,7 +27,12 @@ public class LeftBar extends JPanel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setAlignmentX(JPanel.CENTER_ALIGNMENT);
         this.setPreferredSize(new Dimension(100, 465));
-        this.add(new Upgrade());
-        this.add(new Project());
+        this.add(LeftBar.upgrade);
+        this.add(LeftBar.project);
+    }
+
+    public static Project getProject()
+    {
+        return LeftBar.project;
     }
 }

@@ -17,7 +17,7 @@ public class IncomeTax extends Tax
      */
     public IncomeTax()
     {
-        super(0.55, "Income Tax");
+        super(0.40, "Income Tax");
     }
 
     /**

@@ -205,7 +205,7 @@ public class Coin {
      */
     public double calculatePrice()
     {
-        double typ = (this.value * (this.investors + 1)) / ((double)this.supply / 100 + 1);
+        double typ = (this.value * (this.investors * 0.75)) / Math.max(1, (double)this.supply / 100 + 1 - (this.value / 20));
         return typ + modify;
     }
 
@@ -241,11 +241,11 @@ public class Coin {
 
         if (negPlus == 0)
         {
-            this.supply = Math.max(0, this.supply - (int)(this.supply * 0.2 * Math.random()));
+            this.supply = Math.max(0, this.supply - (int)(this.supply * 0.08 * Math.random()));
         }
         else
         {
-            this.supply += (int)(this.investors * Math.random());
+            this.supply += (int)(this.investors * Math.random() * 1.1);
         }
     }
 

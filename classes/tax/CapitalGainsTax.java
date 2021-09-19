@@ -26,7 +26,7 @@ public class CapitalGainsTax extends Tax
     {
         if (Player.getCash() > 5000)
         {
-            double tax = Player.getCoin().getValue() * -1 * this.getTaxRate();
+            double tax = Player.getCoin().calculatePrice() * -1 * this.getTaxRate();
             Player.changeCash(tax);
             //System.out.println(tax);
         }

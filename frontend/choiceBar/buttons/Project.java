@@ -13,15 +13,30 @@ import frontend.choiceBar.displays.*;
 public class Project extends Choicer
 {
     /**
+     * The project upgrade screen for this project button
+     */
+    private ProjectUpgrade pug;
+    
+    /**
      * Constructs a project
      */
     public Project()
     {
         super("Open up the projects tab and execute some operations", "images/Project.png");
+        this.pug = new ProjectUpgrade();
         super.addMouseListener(new SmartListener(this) {
             public void mouseClicked(MouseEvent e) {
-                new ProjectUpgrade().display();
+                pug.display();
             }
         });
+    }
+
+    /**
+     * Accessor method for pug
+     * @return this.pug
+     */
+    public ProjectUpgrade getPug()
+    {
+        return this.pug;
     }
 }

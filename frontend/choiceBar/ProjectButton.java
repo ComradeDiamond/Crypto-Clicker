@@ -26,13 +26,14 @@ public class ProjectButton extends JButton
     private static final Color GREY = new Color(245, 245, 245);
     private static final Color SILVER = new Color(169, 169, 169);
     private boolean goodBtn;
+    private Project el;
 
     /**
      * Updates the display of a ProjectButton
      * @param el The project obj this button is for
      * @param btn The Project button display you're updating
      */
-    private static void updateDisplay(ProjectButton btn, Project el)
+    public static void updateDisplay(ProjectButton btn, Project el)
     {
         //Determine if buttons should be active or not later on
         btn.goodBtn = el.canClick() && Player.getCash() >= el.calculateCost();
@@ -75,16 +76,17 @@ public class ProjectButton extends JButton
     {
         ProjectButton.updateDisplay(this, el);
         ProjectButton btn = this;
+        this.el = el;
 
         btn.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent e) {
                 if (btn.goodBtn)
                 {
-                    el.initiate();
                     Player.changeCash(-1 * el.calculateCost());
+                    el.initiate();
                     el.addNumClicked();
                     ProjectUpgrade.allChecked = false;
-                    ProjectButton.updateDisplay(btn, el);
+                    LeftBar.getProject().getPug().updateAllBtn();
                     //btn.repaint();
                     Player.getGUI().getStatBar().updateDisplays(true);
                 }
@@ -116,5 +118,14 @@ public class ProjectButton extends JButton
                 }
             }
         });
+    }
+
+    /**
+     * Accessor method for el
+     * @return this.el
+     */
+    public Project getEl()
+    {
+        return this.el;
     }
 }

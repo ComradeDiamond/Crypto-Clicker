@@ -6,6 +6,7 @@ import frontend.choiceBar.CustomScroll;
 import frontend.choiceBar.ProjectButton;
 import classes.projects.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Project Update Panel that... well... allows you to take on projects.
@@ -30,6 +31,8 @@ public class ProjectUpgrade extends Cover
      * For optimization - whether or not all projects are not on cooldown
      */
     public static boolean allChecked = true;
+
+    private ArrayList<ProjectButton> btnList;
 
     /**
      * Recalibrate all project click time. 
@@ -58,6 +61,7 @@ public class ProjectUpgrade extends Cover
     public ProjectUpgrade()
     {
         super();
+        this.btnList = new ArrayList<ProjectButton>();
         JPanel centerPane = new JPanel();
         JScrollPane scrollPane = new JScrollPane(centerPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         //This code is used to test scrollbar design
@@ -137,11 +141,24 @@ public class ProjectUpgrade extends Cover
                 jp1.setMaximumSize(new Dimension(jp1.getMaximumSize().width, 110));
 
                 centerPane.add(jp1);
+                this.btnList.add(jp1Btn);
             }
         }
         
         this.getTextPanel().add(scrollPane, BorderLayout.CENTER);
         this.revalidate();
         this.repaint();
+    }
+
+    /**
+     * Updates all buttons in projects.
+     * Precondition: All the necessary buttons are stored in this.btnList
+     */
+    public void updateAllBtn()
+    {
+        for (ProjectButton btn : this.btnList)
+        {
+            ProjectButton.updateDisplay(btn, btn.getEl());
+        }
     }
 }
