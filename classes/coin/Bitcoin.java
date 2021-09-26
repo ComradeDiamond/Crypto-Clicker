@@ -37,4 +37,13 @@ public class Bitcoin extends Coin
         Player.changeCash(this.calculatePrice() * this.taxRate * -1);
         return super.click();
     }
+
+    /**
+     * Changes the bitcoin tax rate
+     * @param modify The amount of $ to modify here
+     */
+    public void changeTaxRate(double modify)
+    {
+        this.taxRate += modify;
+    }
 }
