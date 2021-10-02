@@ -44,4 +44,13 @@ public class TimedCommand
         this.timer--;
         return this.timer == 0;
     }
+
+    /**
+     * Accessor method for timer
+     * @return this.timer
+     */
+    public int getTimer()
+    {
+        return this.timer;
+    }
 }

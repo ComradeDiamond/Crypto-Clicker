@@ -40,9 +40,7 @@ public class CycleSuspension extends Project
     {
         return Math.max(Player.getCash() * 0.1, 5000);
     }
-
-    private String name;
-
+    
     /**
      * There's a 2.5% chance this will recalibrate
      * @return whether or not the calibration is 0

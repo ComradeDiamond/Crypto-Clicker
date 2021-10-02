@@ -60,6 +60,11 @@ public class Coin {
     private String lore;
 
     /**
+     * Forced price of the coin
+     */
+    private double forcedPrice;
+
+    /**
      * Constructs a coin object that fluxtuates in value and investors
      * The initial supply is set to 0.
      * Initial modify is set to 0.
@@ -116,6 +121,24 @@ public class Coin {
     public double getValue()
     {
         return this.value;
+    }
+
+    /**
+     * Accessor method for forced price
+     * @return this.forcedPrice
+     */
+    public double getForcePrice()
+    {
+        return this.forcedPrice;
+    }
+
+    /**
+     * Mutator method for forced price
+     * @param forcedPrice The price to force the coin
+     */
+    public void setForcedPrice(double forcedPrice)
+    {
+        this.forcedPrice = forcedPrice;
     }
 
     /**
@@ -200,11 +223,12 @@ public class Coin {
     }
 
     /**
-     * Find price of coin yes
+     * Find price of coin or the forced price
      * @return Stonk price of the coin
      */
     public double calculatePrice()
     {
+        if (this.forcedPrice != -1) return this.forcedPrice;
         double typ = (this.value * (this.investors * 0.75)) / Math.max(1, (double)this.supply / 100 + 1 - (this.value / 20));
         return typ + modify;
     }
@@ -259,7 +283,7 @@ public class Coin {
     {
         this.influenceCalc();
         Player.changeCash(this.calculatePrice());
-
+    
         return this.calculatePrice();
     }
 
