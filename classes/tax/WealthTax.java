@@ -37,7 +37,7 @@ public class WealthTax extends Tax
     public WealthTax()
     {
         super(0, "Wealth Tax");
-        this.mills = 0.1;
+        this.mills = 0.075;
         this.bills = 0.5;
         this.trills = 0.75;
         this.mores = 0.99;
@@ -79,6 +79,7 @@ public class WealthTax extends Tax
     public void enact()
     {
         double cash = Player.getCash();
+        if (cash < 1000000) return;
         double sum = 0;
 
         sum += calibrate(cash, 1000000) * this.mills;
@@ -86,7 +87,7 @@ public class WealthTax extends Tax
         sum += calibrate(cash, 1000000000000.0) * this.trills;
         sum += (cash - (cash % 1000000000000000.0)) * this.mores;
 
-        System.out.println(sum);
+        System.out.println("Wealth " + sum);
         Player.changeCash(sum * -1);
     }
 
@@ -98,5 +99,6 @@ public class WealthTax extends Tax
     private double calibrate(double num, double placeVal)
     {
         return (num % (placeVal * 1000)) - (num % placeVal);
+        //work on: flash crash potentially deleting too much $
     }
 }

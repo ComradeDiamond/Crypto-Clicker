@@ -26,7 +26,7 @@ public class InternationalTax extends Tax
     public void enact()
     {
         double tax = Player.getCoin().calculatePrice() * this.getTaxRate();
-        //System.out.println(tax);
+        System.out.println("International " + tax);
         Player.changeCash(tax * -1);
     }
 }

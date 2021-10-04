@@ -28,7 +28,7 @@ public class ForeignTax extends Tax
     public void enact()
     {
         double tax = Player.getCoin().calculatePrice() * this.getTaxRate() * -1;
-        //System.out.println(tax);
+        System.out.println("Foreign: " + tax);
         Player.changeCash(tax);
     }
 }

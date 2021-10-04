@@ -28,7 +28,7 @@ public class CapitalGainsTax extends Tax
         {
             double tax = Player.getCoin().getValue() * -1 * this.getTaxRate();
             Player.changeCash(tax);
-            //System.out.println(tax);
+            System.out.println("capital " + tax);
         }
     }
 }

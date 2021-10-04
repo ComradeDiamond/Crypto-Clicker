@@ -28,7 +28,8 @@ public class IncomeTax extends Tax
     public void enact()
     {
         double tax = Player.getCoin().calculatePrice() * this.getTaxRate();
-        //System.out.println(tax);
+        System.out.println("Income " + tax);
         Player.changeCash(tax * -1);
     }
 }
+//pepecoin might be insanely valuable - but it's useless when you get taxed

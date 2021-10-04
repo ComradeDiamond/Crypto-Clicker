@@ -64,14 +64,14 @@ class FCCmd extends TimedCommand
     /**
      * Forced price calc
      */
-    private double forceTally = 0;
+    private double forceTally;
 
     /**
      * Constructs flash crash
      */
     public FCCmd()
     {
-        super(5);
+        super(10);
         this.forceTally = Player.getCoin().calculatePrice();
     }
 
@@ -84,7 +84,7 @@ class FCCmd extends TimedCommand
         Player.getCoin().setSupply((int)(Player.getCoin().getSupply() * Math.random()));
         Player.getCoin().setInvestors((int)(Player.getCoin().getInvestors() * Math.max(0.75, Math.random())));
 
-        if (this.getTimer() == 1)
+        if (this.getTimer() == 1 || this.getTimer() == 0 || this.getTimer() == -1)
         {
             Player.getCoin().setForcedPrice(-1);
         }

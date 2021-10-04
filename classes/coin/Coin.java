@@ -85,6 +85,7 @@ public class Coin {
         this.supply = 0;
         this.modify = 0;
         this.updated = 0;
+        this.forcedPrice = -1;
     }
 
     /**
@@ -229,7 +230,7 @@ public class Coin {
     public double calculatePrice()
     {
         if (this.forcedPrice != -1) return this.forcedPrice;
-        double typ = (this.value * (this.investors * 0.75)) / Math.max(1, (double)this.supply / 100 + 1 - (this.value / 20));
+        double typ = (this.value * (this.investors * 0.75) + 1) / Math.max(1, (double)this.supply / 100 + 1 - (this.value / 20));
         return typ + modify;
     }
 
