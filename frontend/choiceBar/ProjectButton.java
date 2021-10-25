@@ -36,18 +36,19 @@ public class ProjectButton extends JButton
     public static void updateDisplay(ProjectButton btn, Project el)
     {
         //Determine if buttons should be active or not later on
-        btn.goodBtn = el.canClick() && Player.getCash() >= el.calculateCost();
+        double cost = el.calculateCost();
+        btn.goodBtn = el.canClick() && (Player.getCash() >= cost || cost == 0);
         String reason;
 
         if (el.canClick())
         {
             if (btn.goodBtn)
             {
-                reason = "$" + StatLabel.calibrate(el.calculateCost());
+                reason = "$" + StatLabel.calibrate(cost);
             }
             else
             {
-                reason = "$" + StatLabel.calibrate(el.calculateCost());
+                reason = "$" + StatLabel.calibrate(cost);
             }
         }
         else
