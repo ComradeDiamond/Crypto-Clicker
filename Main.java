@@ -8,4 +8,4 @@ public class Main
         GUI game = new GUI(); 
         Player.setGUI(game);
     }
-}
+} 
