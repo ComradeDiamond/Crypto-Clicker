@@ -16,11 +16,11 @@ public class DebtCollection extends Tax
     private double owedAmt;
 
     /**
-     * Constructs a debt collection. This starts off as 0% tax rate
+     * Constructs a debt collection. This starts off as 10% tax rate
      */
     public DebtCollection()
     {
-        super(0, "Debt Collection");
+        super(0.1, "Debt Collection");
         this.owedAmt = 0;
     }
 
@@ -35,12 +35,12 @@ public class DebtCollection extends Tax
 
     /**
      * Changes the amount owed.
-     * You owe 3x the amount inputted
+     * You owe 1.5x the amount inputted
      * @param change The amount you're adding to the owed amt
      */
     public void changeOwedAmt(double change)
     {
-        this.owedAmt += (change * 3);
+        this.owedAmt += (change * 2);
     }
 
     /**
@@ -55,9 +55,5 @@ public class DebtCollection extends Tax
         Player.changeCash(tax * -1);
 
         this.owedAmt = Math.max(0, this.owedAmt - tax);
-        if (this.owedAmt == 0)
-        {
-            this.setTaxRate(0);
-        }
     }
 }

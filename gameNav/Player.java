@@ -48,8 +48,13 @@ public class Player
      * ArrayList to keep track of the player's taxes
      */
     private static ArrayList<Tax> taxArr = new ArrayList<>(Arrays.asList(new Tax[] {
-        new IncomeTax(), new ForeignTax(), new CapitalGainsTax(), new WealthTax(), new InternationalTax()
+        new IncomeTax(), new ForeignTax(), new CapitalGainsTax(), new WealthTax(), new InternationalTax(), new DebtCollection()
     }));
+
+    public static DebtCollection getDebtCollection()
+    {
+        return (DebtCollection)taxArr.get(5);
+    }
 
     /**
      * Accessor method for Player.cash

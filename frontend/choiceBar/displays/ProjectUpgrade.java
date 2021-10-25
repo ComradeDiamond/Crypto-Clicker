@@ -26,7 +26,10 @@ public class ProjectUpgrade extends Cover
         Map.entry("CPUpgrade", new CPUpgrade()),
         Map.entry("Forex", new Forex()),
         Map.entry("CycleSuspension", new CycleSuspension()),
-        Map.entry("FlashCrash", new FlashCrash())
+        Map.entry("FlashCrash", new FlashCrash()),
+        Map.entry("LoanConsolidation", new LoanConsolidation()),
+        Map.entry("MarginCall", new MarginCall()),
+        Map.entry("SellOption", new SellOption())
     );
 
     /**

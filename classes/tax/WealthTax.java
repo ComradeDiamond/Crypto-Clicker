@@ -3,7 +3,7 @@ package classes.tax;
 import gameNav.Player;
 
 /**
- * If you have too much $, you get taxed
+ * Wealth tax is here to make sure that the player doesn't get bored late game
  * This class does NOT use the superclass tax rate attribute. It uses its own custom tax rate
  * @author Justin
  * @since 4/15/21
@@ -37,10 +37,10 @@ public class WealthTax extends Tax
     public WealthTax()
     {
         super(0, "Wealth Tax");
-        this.mills = 0.075;
-        this.bills = 0.5;
-        this.trills = 0.75;
-        this.mores = 0.99;
+        this.mills = 0.05;
+        this.bills = 0.15;
+        this.trills = 0.25;
+        this.mores = 0.75;
     }
 
     /**
@@ -87,7 +87,7 @@ public class WealthTax extends Tax
         sum += calibrate(cash, 1000000000000.0) * this.trills;
         sum += (cash - (cash % 1000000000000000.0)) * this.mores;
 
-        System.out.println("Wealth " + sum);
+        //System.out.println("Wealth " + sum);
         Player.changeCash(sum * -1);
     }
 
