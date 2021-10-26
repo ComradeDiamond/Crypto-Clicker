@@ -20,7 +20,7 @@ public class ProjectUpgrade extends Cover
      * Array of projects that could be used later on.
      * Whether or not they will appear though... depends on Project.prototype.determineDisplay
      */
-    private static Map<String, Project> projects = Map.ofEntries(
+    public static final Map<String, Project> projects = Map.ofEntries(
         Map.entry("Autoclicker", new Autoclicker()),
         Map.entry("Autoclicker2", new Autoclicker2()),
         Map.entry("CPUpgrade", new CPUpgrade()),
@@ -29,7 +29,9 @@ public class ProjectUpgrade extends Cover
         Map.entry("FlashCrash", new FlashCrash()),
         Map.entry("LoanConsolidation", new LoanConsolidation()),
         Map.entry("MarginCall", new MarginCall()),
-        Map.entry("SellOption", new SellOption())
+        Map.entry("SellOption", new SellOption()),
+        Map.entry("UltraCluster", new UltraCluster()),
+        Map.entry("ElPepe", new ElPepe())
     );
 
     /**

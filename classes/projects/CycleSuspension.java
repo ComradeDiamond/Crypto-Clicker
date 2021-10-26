@@ -62,7 +62,7 @@ public class CycleSuspension extends Project
      */
     public void initiate()
     {
-        PlayerActions.taskQueue.add(new CSCmd());
+        PlayerActions.taskQueue.add(0, new CSCmd());
     }
 }
 

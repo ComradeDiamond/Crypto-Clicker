@@ -40,7 +40,7 @@ public class SellOption extends Project
     {
         int multiplier = (int)(Math.random() * 20) + 10;
         double cashInjection = Player.getCoin().calculatePrice() * multiplier;
-        Player.getCoin().changeSupply(Player.getCoin().getInvestors() * multiplier / 2);
+        Player.getCoin().changeSupply(Player.getCoin().getInvestors() * multiplier * 3 / 4);
         Player.changeCash(cashInjection, true);
     }
 

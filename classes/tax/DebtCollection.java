@@ -51,7 +51,7 @@ public class DebtCollection extends Tax
     {
         if (this.owedAmt == 0) return;
         double tax = Player.getCoin().calculatePrice() * this.getTaxRate();
-        System.out.println("Debt " + tax);
+        //System.out.println("Debt " + tax);
         Player.changeCash(tax * -1);
 
         this.owedAmt = Math.max(0, this.owedAmt - tax);

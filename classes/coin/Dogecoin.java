@@ -15,7 +15,7 @@ public class Dogecoin extends Coin
      */
     public Dogecoin()
     {
-        super("Dogecoin!!!", 0.0000000001, 10000, "images/Dogecoin.png", 10000000,
+        super("Dogecoin!!!", 0.0000000001, 10000, "images/Dogecoin.png", 100000000,
             "A coin that has absolutely no hard limits on supply and no inflation control measures. What's a safe investment? Researching the doge coin officially unlocks the Tech Tree.");
     }
 }

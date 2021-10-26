@@ -5,7 +5,8 @@ import java.awt.Color;
 import gameNav.Player;
 
 /**
- * Loan some money from the bank in a margin call!
+ * Loan some money from the bank in a margin loan!
+ * NOT A MARGIN CALL - Justin change the class names lmao
  * @author Justin
  * @since 10/24/21
  * @category classes.projects
@@ -16,7 +17,7 @@ public class MarginCall extends Project
 
     public MarginCall()
     {
-        super("Margin Call", "Need money to fund new projects? Need a cash injection to grab that new Ninja Monkey Paragon? Get a loan from the bank! Increases your maximum loan amount by 500%.", 
+        super("Margin Loan", "Need money to fund new projects? Need a cash injection to grab that new Ninja Monkey Paragon? Get a loan from the bank! Increases your maximum loan amount by 50%.", 
         0, 2, "Images/MarginCall.png", new Color(255, 237, 79));
 
         maxLoan = 1000;
@@ -29,7 +30,7 @@ public class MarginCall extends Project
     {
         Player.changeCash(this.maxLoan);
         Player.getDebtCollection().changeOwedAmt(this.maxLoan);
-        this.maxLoan *= 5;
+        this.maxLoan *= 1.5;
     }
 
     /**
