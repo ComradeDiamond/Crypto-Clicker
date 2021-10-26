@@ -4,6 +4,7 @@ import javax.swing.border.*;
 import java.awt.event.*;
 import java.awt.*;
 import gameNav.Player;
+import gameNav.PlayerActions;
 
 /**
  * Frontend class that displays a cover modal to update the coins!
@@ -141,7 +142,6 @@ public class CoinUpgrade extends Cover
         btnTxt.setVerticalAlignment(JLabel.CENTER);
         btnTxt.setBorder(new EmptyBorder(15, 15, 15, 15));
         btnTxt.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
-
         btn.add(btnTxt);
         btn.setBackground(new Color(64, 214, 255));
         btn.addMouseListener(new MouseListener(){
@@ -151,6 +151,7 @@ public class CoinUpgrade extends Cover
                 {
                     Player.upgradeCoin();
                     dis.exit();
+                    Player.getGUI().getStatBar().updateDisplays(true);
                 }
             }
         
