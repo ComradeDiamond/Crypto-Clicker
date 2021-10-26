@@ -150,7 +150,6 @@ public class CoinUpgrade extends Cover
                 if (Player.nextCoin() != null && Player.getCash() >= Player.nextCoin().getUnlockPrice())
                 {
                     Player.upgradeCoin();
-                    Player.setCash(Player.getCash() - Player.getCoin().getUnlockPrice());
                     dis.exit();
                 }
             }
@@ -173,6 +172,7 @@ public class CoinUpgrade extends Cover
             }
         });
         btn.setBorder(new LineBorder(Color.BLUE));
+        btn.setEnabled(true);
         if (Player.nextCoin() == null)
         {
             btn.setEnabled(false);
@@ -180,6 +180,8 @@ public class CoinUpgrade extends Cover
         }
         else if (Player.getCash() < Player.nextCoin().getUnlockPrice())
         {
+            //System.out.println(Player.getCash());
+            //System.out.println(Player.nextCoin().getUnlockPrice());
             btn.setEnabled(false);
             btnTxt.setText("Insufficient Funds - This costs $" + Player.nextCoin().getUnlockPrice());
         }
