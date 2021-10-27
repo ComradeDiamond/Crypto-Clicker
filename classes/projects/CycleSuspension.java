@@ -30,7 +30,7 @@ public class CycleSuspension extends Project
     public boolean determineDisplay()
     {
         String pName =  Player.getCoin().getName();
-        return pName.equalsIgnoreCase("Bitcoin") || pName.equalsIgnoreCase("Pepecoin");
+        return !pName.equalsIgnoreCase("Litecoin");
     }
 
     /**

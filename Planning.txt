@@ -14,7 +14,7 @@ Crypto Clicker
 
 Stonk Market Manipulation
 
-//If have time
+//Future Developments
 **Tech Tree unlocks with DogeCoins**
 - Research technology to speed up cryto
 

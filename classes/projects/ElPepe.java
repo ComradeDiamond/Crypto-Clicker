@@ -40,7 +40,6 @@ public class ElPepe extends Project
     {
         int num = (int)(Math.random() * 45000) + 5000;
         Player.getCoin().changeInvestors(num);
-        Player.getCoin().changeSupply(num / 2);
         ProjectUpgrade.projects.get("UltraCluster").numClicked = 500;
         PlayerActions.taskQueue.clear();
     }

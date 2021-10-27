@@ -54,7 +54,7 @@ public class PlayerActions
         //Income is basically just calculate price
         double initIncome = Player.getCoin().calculatePrice();
         double income = Player.getCoin().click();
-        System.out.println("income: " + income);
+        //System.out.println("income: " + income);
 
         PlayerActions.tax(income);
         Player.getGUI().getStatBar().updateDisplays(income > initIncome);

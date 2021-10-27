@@ -81,7 +81,7 @@ class FCCmd extends TimedCommand
      */
     public boolean execute()
     {
-        Player.getCoin().setSupply((int)(Player.getCoin().getSupply() * Math.random()));
+        Player.getCoin().setSupply((int)(Player.getCoin().getSupply() * Math.max(0.5, Math.random())));
         Player.getCoin().setInvestors((int)(Player.getCoin().getInvestors() * Math.max(0.75, Math.random())));
 
         if (this.getTimer() == 1 || this.getTimer() == 0 || this.getTimer() == -1)

@@ -121,7 +121,9 @@ class UltraCommand extends TimedCommand
         Coin coin = Player.getCoin();
         if (coin.getName().equals("Pepecoin"))
         {
-            if ((int)(Math.random() * 100) < this.protNum)
+            int randNum = (int)(Math.random() * 100);
+            //System.out.println(randNum + " " + (randNum < this.protNum));
+            if (randNum < this.protNum)
             {
                 ((Pepecoin)coin).enableBypass();
             }

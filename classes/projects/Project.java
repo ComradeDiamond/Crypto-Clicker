@@ -130,7 +130,7 @@ public class Project
     {
         return this.cost;
     }
-
+ 
     /**
      * Returns whether or not the user could still click this method
      * @return this.numClicked < this.maxExec

@@ -15,54 +15,54 @@ public class Coin {
      * Innate/Starting value of a coin.
      * Basically how much the coin is actually worth
      */
-    private double value;
+    protected double value;
 
     /**
      * How many investors are investing in the coin uwu
      */
-    private int investors;
+    protected int investors;
 
     /**
      * How many coins are in circulation. 
      * This is about to cause inflation lmao
      */
-    private int supply;
+    protected int supply;
 
     /**
      * Modify stonk value for some reason.
      * External modifier
      */
-    private double modify;
+    protected double modify;
 
     /**
      * Number of times the coin value here is updated
      */
-    private int updated;
+    protected int updated;
 
     /**
      * The path to the coin image
      */
-    private String image;
+    protected String image;
 
     /**
      * The name of the coin
      */
-    private String name;
+    protected String name;
 
     /**
      * Price it takes to unlock the coin
      */
-    private double unlockPrice;
+    protected double unlockPrice;
 
     /**
      * Sets the lore of the coin
      */
-    private String lore;
+    protected String lore;
 
     /**
      * Forced price of the coin
      */
-    private double forcedPrice;
+    protected double forcedPrice;
 
     /**
      * Constructs a coin object that fluxtuates in value and investors
