@@ -43,9 +43,11 @@ public class CoinDisplay extends JLabel
             }
 
             public void mouseReleased(MouseEvent e) {
+                dis.updateImage();
             }
 
             public void mousePressed(MouseEvent e) {
+                dis.setIcon(new ImageIcon(new ImageIcon(Player.getCoin().getImage()).getImage().getScaledInstance(250, 250, 16)));
             }
 
             public void mouseExited(MouseEvent e) {

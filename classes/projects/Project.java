@@ -67,7 +67,7 @@ public class Project
         this.image = image;
         this.numClicked = 0;
         this.color = color;
-    }    
+    }     
 
     /**
      * Returns the display color that will be used to highlight

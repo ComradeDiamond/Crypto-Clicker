@@ -17,7 +17,7 @@ public class Spiff extends Project
 {
     public Spiff()
     {
-        super("Spiffin' Brit", "The stock market is a perfectly balanced game with no exploits! Well, at least for the next 5 turns.", 
+        super("Spiffin' Brit", "The stock market is a perfectly balanced game with no exploits!", 
             50, 1, "Images/Spiff.jpg", Color.YELLOW);
     }
 
@@ -49,6 +49,7 @@ public class Spiff extends Project
      */
     public void initiate()
     {
+        Player.getCoin().changeModify(0.1);
         PlayerActions.taskQueue.add(new Corrupted());
     }
 }

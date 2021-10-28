@@ -16,6 +16,11 @@ public class Dogecoin extends Coin
     private boolean corruptCoin;
 
     /**
+     * Divide doge supply and investors by this
+     */
+    private int mechanics;
+
+    /**
      * Constructs everyone's favorite coin!
      */
     public Dogecoin()
@@ -23,6 +28,8 @@ public class Dogecoin extends Coin
         super("Dogecoin!!!", 0.0000000001, 10000, "images/Dogecoin.png", 100000000,
             "A coin that has absolutely no hard limits on supply and is insanely easy to mine. What's a safe investment? Researching the doge coin officially unlocks the Tech Tree.");
         this.corruptCoin = false;
+        this.mechanics = 1;
+        this.modify = 0.1;
     }
 
     /**
@@ -33,7 +40,7 @@ public class Dogecoin extends Coin
     {
         if (this.forcedPrice != -1) return this.forcedPrice;
         double typ = (this.value * (this.investors * 0.15) + 1) / Math.max(1, (double)this.supply / 600 + 1 - (this.value / 100));
-        return typ + modify;
+        return typ + this.modify;
     }
 
     /**
@@ -51,10 +58,10 @@ public class Dogecoin extends Coin
         else
         {
             int cloutFrenzy = (int)this.getModify() * (int)(Math.random() * 10);
-            int frenzy = (int)this.calculatePrice() / 100 + 1 + cloutFrenzy;
+            int frenzy = (int)this.calculatePrice() * 10 + 1 + cloutFrenzy;
             int negPlus = (int) (Math.random() * 6);
             int infl = negPlus == 0 ? (int)(Math.random() * 5) * frenzy * -1 : (int)(Math.random() * 5) * frenzy;
-            this.investors = Math.max(0, this.investors + infl);
+            this.investors = Math.max(0, this.investors + infl) / this.mechanics;
 
             if (negPlus == 0)
             {
@@ -62,9 +69,18 @@ public class Dogecoin extends Coin
             }
             else
             {
-                this.supply += (int)(this.investors * Math.random() * 15);
+                this.supply += (int)(this.investors * Math.random() * 15) / this.mechanics;
             }
         }
+    }
+
+    /**
+     * Mutator for this.mechanics
+     * @param mechanics New mechanics value
+     */
+    public void setMechanics(int mechanics)
+    {
+        this.mechanics = mechanics;
     }
 
     /**
@@ -73,10 +89,10 @@ public class Dogecoin extends Coin
     public void corruptInfluenceCalc()
     {
         int cloutFrenzy = (int)this.getModify() * (int)(Math.random() * 100);
-        int frenzy = (int)this.calculatePrice() / 10000 + 1 + cloutFrenzy;
+        int frenzy = (int)this.calculatePrice() * 10 + 1 + cloutFrenzy;
         int negPlus = (int) (Math.random() * 6);
         int infl = negPlus == 0 ? (int)(Math.random() * 5) * frenzy * -1 : (int)(Math.random() * 5) * frenzy;
-        this.supply = Math.max(0, this.investors + infl);
+        this.supply = Math.max(0, this.investors + infl) / this.mechanics;
 
         if (negPlus == 0)
         {
@@ -84,7 +100,7 @@ public class Dogecoin extends Coin
         }
         else
         {
-            this.investors += (int)(this.investors * Math.random() * 15);
+            this.investors += (int)(this.supply * Math.random() * 15) / this.mechanics;
         }
     }
 

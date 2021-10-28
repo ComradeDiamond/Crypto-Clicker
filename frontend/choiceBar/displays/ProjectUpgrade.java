@@ -31,7 +31,11 @@ public class ProjectUpgrade extends Cover
         Map.entry("MarginCall", new MarginCall()),
         Map.entry("SellOption", new SellOption()),
         Map.entry("UltraCluster", new UltraCluster()),
-        Map.entry("ElPepe", new ElPepe())
+        Map.entry("ElPepe", new ElPepe()),
+        Map.entry("PewDiePie", new PewDiePie()),
+        Map.entry("Spiff", new Spiff()),
+        Map.entry("ElonMusk", new ElonMusk()),
+        Map.entry("MrBeast", new MrBeast())
     );
 
     /**
