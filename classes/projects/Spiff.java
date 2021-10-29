@@ -17,7 +17,7 @@ public class Spiff extends Project
 {
     public Spiff()
     {
-        super("Spiffin' Brit", "The stock market is a perfectly balanced game with no exploits!", 
+        super("Spiffin' Brit", "The stock market is a perfectly balanced game with no exploits! Stack overflow ensues - but hey, at least you got rid of some supply.", 
             50, 1, "Images/Spiff.jpg", Color.YELLOW);
     }
 

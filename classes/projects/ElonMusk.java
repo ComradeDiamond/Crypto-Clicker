@@ -37,7 +37,7 @@ public class ElonMusk extends Project
         return yet;
     }
 
-    /**
+    /** 
      * @return Whether it's dogecoin
      */
     public boolean determineDisplay()

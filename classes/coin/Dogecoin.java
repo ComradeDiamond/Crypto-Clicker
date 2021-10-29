@@ -26,21 +26,17 @@ public class Dogecoin extends Coin
     public Dogecoin()
     {
         super("Dogecoin!!!", 0.0000000001, 10000, "images/Dogecoin.png", 100000000,
-            "A coin that has absolutely no hard limits on supply and is insanely easy to mine. What's a safe investment? Researching the doge coin officially unlocks the Tech Tree.");
+            "A coin that has absolutely no hard limits on supply and is insanely easy to mine. What's a safe investment? Researching the doge coin officially allows overflow investors to decrease supply.");
         this.corruptCoin = false;
         this.mechanics = 1;
         this.modify = 0.1;
     }
 
-    /**
-     * Custom Dogecoin price calculation - because it's a volatile coin lol
-     * @return Stonk price of the coin
-     */
     public double calculatePrice()
     {
         if (this.forcedPrice != -1) return this.forcedPrice;
-        double typ = (this.value * (this.investors * 0.15) + 1) / Math.max(1, (double)this.supply / 600 + 1 - (this.value / 100));
-        return typ + this.modify;
+        double typ = (this.value * (this.investors * 0.75) + 1) / Math.max(1, Math.pow(this.supply, Math.max(0.8, Math.random() + 0.2)));
+        return typ + modify;
     }
 
     /**
@@ -57,7 +53,7 @@ public class Dogecoin extends Coin
         }
         else
         {
-            int cloutFrenzy = (int)this.getModify() * (int)(Math.random() * 10);
+            int cloutFrenzy = (int)Math.pow(this.getModify(), Math.random() / 2 + 1);;
             int frenzy = (int)this.calculatePrice() * 10 + 1 + cloutFrenzy;
             int negPlus = (int) (Math.random() * 6);
             int infl = negPlus == 0 ? (int)(Math.random() * 5) * frenzy * -1 : (int)(Math.random() * 5) * frenzy;
@@ -69,7 +65,7 @@ public class Dogecoin extends Coin
             }
             else
             {
-                this.supply += (int)(this.investors * Math.random() * 15) / this.mechanics;
+                this.supply += (int)((Math.sqrt(this.investors) + 1) * Math.random() * (Math.sqrt(this.supply) + 1)) / this.mechanics;
             }
         }
     }
@@ -88,19 +84,19 @@ public class Dogecoin extends Coin
      */
     public void corruptInfluenceCalc()
     {
-        int cloutFrenzy = (int)this.getModify() * (int)(Math.random() * 100);
-        int frenzy = (int)this.calculatePrice() * 10 + 1 + cloutFrenzy;
-        int negPlus = (int) (Math.random() * 6);
+        int cloutFrenzy = (int)this.getModify() * (int)(Math.random() * 10);
+        int frenzy = (int)this.calculatePrice() * (10 + 1 + cloutFrenzy);
+        int negPlus = (int) (Math.random() * 10);
         int infl = negPlus == 0 ? (int)(Math.random() * 5) * frenzy * -1 : (int)(Math.random() * 5) * frenzy;
-        this.supply = Math.max(0, this.investors + infl) / this.mechanics;
+        this.supply = Math.max(0, this.supply + infl) / this.mechanics;
 
         if (negPlus == 0)
         {
-            this.investors = Math.max(0, this.supply - (int)(this.supply * 0.1 * Math.random()));
+            this.investors = Math.max(0, this.investors - (int)(this.investors * 0.1 * Math.random()));
         }
         else
         {
-            this.investors += (int)(this.supply * Math.random() * 15) / this.mechanics;
+            this.investors += (int)((Math.sqrt(this.supply) + 1) * Math.random() * (Math.sqrt(this.investors) + 1)) / this.mechanics;
         }
     }
 
