@@ -20,22 +20,25 @@ public class PriceDisplay extends DataDisplay
     /**
      * The image icon for stonks
      */
-    private static ImageIcon stonks = new ImageIcon(new ImageIcon("images/Stonks.png").getImage().getScaledInstance(40, 49, 16));
+    private ImageIcon stonks;
 
     /**
      * The image icon for not stonks
      */
-    private static ImageIcon stinks = new ImageIcon(new ImageIcon("images/Stinks.png").getImage().getScaledInstance(40, 49, 16));
+    private ImageIcon stinks;
 
     /**
      * Constructs a price display!
      */
     public PriceDisplay()
     {
-        super(stonks, false, "<html>This is the stock value of your crypto coin. Keep an eye on this as this is how much $ you'll make from each click. <br />" +
+        super("/images/Stonks.png", false, "<html>This is the stock value of your crypto coin. Keep an eye on this as this is how much $ you'll make from each click. <br />" +
         "Factors for STONKS: Coin Value, Investor Number, Influencers<br />Factors for STINKS: Coin supply<br />" +
         "The price is also affected by external mutators.\nIf you get rich enough, this will be subject to heavy capital gains tax.</html>");
         this.calibrate(false);
+
+        this.stonks = new ImageIcon(new ImageIcon(getClass().getResource("/images/Stonks.png")).getImage().getScaledInstance(40, 49, 16));
+        this.stinks = new ImageIcon(new ImageIcon(getClass().getResource("/images/Stinks.png")).getImage().getScaledInstance(40, 49, 16));
     }
 
     /**
@@ -45,7 +48,7 @@ public class PriceDisplay extends DataDisplay
      */
     public void calibrate(boolean isStonks)
     {
-        ImageIcon icon = isStonks ? PriceDisplay.stonks : PriceDisplay.stinks;
+        ImageIcon icon = isStonks ? this.stonks : this.stinks;
         this.setIcon(icon);
 
         String txt = "$" + StatLabel.calibrate(Player.getCoin().calculatePrice());

@@ -22,7 +22,7 @@ public class Project extends Choicer
      */
     public Project()
     {
-        super("Open up the projects tab and execute some operations", "images/Project.png");
+        super("Open up the projects tab and execute some operations", "/images/Project.png");
         Project x = this;
         this.addMouseListener(new SmartListener(this) {
             public void mouseClicked(MouseEvent e) {

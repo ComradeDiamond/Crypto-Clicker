@@ -29,7 +29,7 @@ public class Forex extends Project
     public Forex()
     {
         super("FOREX", "What happens when your stock prices drop into oblivion? Listen to apes and buy the dip! Increases ForEx trading capacity by 5%.",
-        500, 2, "images/ForEx.png", Color.ORANGE);
+        500, 2, "/images/ForEx.png", Color.ORANGE);
 
         this.maxPercent = 0.25;
         this.discount = 0;

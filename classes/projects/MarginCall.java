@@ -18,7 +18,7 @@ public class MarginCall extends Project
     public MarginCall()
     {
         super("Margin Loan", "Need money to fund new projects? Need a cash injection to grab that new Ninja Monkey Paragon? Get a loan from the bank! Increases your maximum loan amount by 50%.", 
-        0, 2, "Images/MarginCall.png", new Color(255, 237, 79));
+        0, 2, "/images/MarginCall.png", new Color(255, 237, 79));
 
         maxLoan = 1000;
     }

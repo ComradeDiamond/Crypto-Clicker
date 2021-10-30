@@ -2,7 +2,6 @@ package frontend.statBar;
 
 import gameNav.Player;
 import gameNav.StatLabel;
-import javax.swing.ImageIcon;
 
 /**
  * Frontend display class that displays the number of investors.
@@ -19,7 +18,7 @@ public class InvestorDisplay extends DataDisplay
      */
     public InvestorDisplay()
     {
-        super(new ImageIcon("images/Investor.png"), true, "<html>This is how many investors you have. More investors means more profit.<br />" +
+        super("/images/Investor.png", true, "<html>This is how many investors you have. More investors means more profit.<br />" +
         "However also be warned that more investors also means more supply.</html>");
     }
 

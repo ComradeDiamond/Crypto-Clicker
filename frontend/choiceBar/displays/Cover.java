@@ -69,7 +69,7 @@ public class Cover extends JPanel
         //No lexical scoping is dumb yes
         Cover temp = this;
 
-        Choicer exit = new Choicer("Exit", "images/Previous.png");
+        Choicer exit = new Choicer("Exit", "/images/Previous.png");
         exit.addMouseListener(new SmartListener(exit) {
             public void mouseClicked(MouseEvent e)
             {

@@ -21,7 +21,7 @@ public class Bitcoin extends Coin
      */
     public Bitcoin()
     {
-        super("Bitcoin", 150, 300, "images/Bitcoin.png", 1000, 
+        super("Bitcoin", 150, 300, "/images/Bitcoin.png", 1000, 
             "The most stable, default, and practical cryptocurrency used in a myriad of exchanges. Oh yea and Bitcoin INC charges a 20% transaction fee but whatever.");
         this.taxRate = 0.2;
     }

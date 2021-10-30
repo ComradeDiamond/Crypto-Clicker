@@ -25,7 +25,7 @@ public class Dogecoin extends Coin
      */
     public Dogecoin()
     {
-        super("Dogecoin!!!", 0.1, 10000, "images/Dogecoin.png", 100000000,
+        super("Dogecoin!!!", 0.1, 10000, "/images/Dogecoin.png", 100000000,
             "A coin that has absolutely no hard limits on supply and is insanely easy to mine. What's a safe investment? Researching the doge coin officially allows overflow investors to decrease supply.");
         this.corruptCoin = false;
         this.mechanics = 1;

@@ -20,7 +20,7 @@ public class CycleSuspension extends Project
     public CycleSuspension()
     {
         super("Cycle Suspension", "Remotely inject command code 068101108097121 to halt all tax collection for the next 5 turns. Nanovirus activity is also disabled.", 
-        Math.max(Player.getCash() * 0.2, 5000), 1, "images/CycleSuspension.png", Color.GREEN);
+        Math.max(Player.getCash() * 0.2, 5000), 1, "/images/CycleSuspension.png", Color.GREEN);
     }
 
     /**

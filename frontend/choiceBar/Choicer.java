@@ -32,7 +32,7 @@ public class Choicer extends JLabel
         this.setPreferredSize(new Dimension(80, 80));
         this.setToolTipText(tooltip);
 
-        this.icon = new ImageIcon(image);
+        this.icon = new ImageIcon(getClass().getResource(image));
         this.adjustImageSize(80, 80);
     }
 

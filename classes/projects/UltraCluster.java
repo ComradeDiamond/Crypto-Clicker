@@ -28,7 +28,7 @@ public class UltraCluster extends Project
     public UltraCluster()
     {
         super("Hyperscale Cluster", "Do you have a potato for a laptop? Are you tired of your crypto getting stolen by people with RTX 3080? Invest in Amazon's UltraCluster EC2 P4D with NVIDIA A100 GPUs and 400Gbps for the next 3 turns.", 
-        5000000, 1, "Images/UltraCluster.jpg", new Color(3, 115, 252));
+        5000000, 1, "/images/UltraCluster.jpg", new Color(3, 115, 252));
         this.protNum = 50;
         this.canRevalidate = true;
     }

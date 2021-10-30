@@ -19,7 +19,7 @@ public class MrBeast extends Project
     public MrBeast()
     {
         super("Mr. Beast", "Mr. Beast will basically throw money at your cause for the next 20 turns... well provided you win his Squid Game stuff.", 
-        2000, 2, "Images/MrBeast.jpg", Color.ORANGE);
+        2000, 2, "/images/MrBeast.jpg", Color.ORANGE);
     }
 
     public double calculateCost()

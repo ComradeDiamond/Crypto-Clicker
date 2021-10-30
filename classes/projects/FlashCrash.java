@@ -17,7 +17,7 @@ public class FlashCrash extends Project
     public FlashCrash()
     {
         super("Flash Crash", "Execute high speed Linux trading software to create a massive flash crash. Investors panic sell over the next 10 turns.", 
-            10000, 1, "images/FlashCrash.png", Color.RED);
+            10000, 1, "/images/FlashCrash.png", Color.RED);
     }
 
     public String getDesc()

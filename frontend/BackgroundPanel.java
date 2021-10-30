@@ -20,7 +20,7 @@ public class BackgroundPanel extends JLabel
     public BackgroundPanel(int x, int y, String imageString)
     {
         super();
-        this.setIcon(new ImageIcon(imageString));
+        this.setIcon(new ImageIcon(getClass().getResource(imageString)));
         this.setBounds(0, 110, x, y - 110);
     }
 }

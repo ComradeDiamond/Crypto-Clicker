@@ -1,6 +1,5 @@
 package frontend.statBar;
 
-import javax.swing.ImageIcon;
 import gameNav.Player;
 import gameNav.StatLabel;
 
@@ -19,7 +18,7 @@ public class CashDisplay extends DataDisplay
      */
     public CashDisplay()
     {
-        super(new ImageIcon("images/Money.png"), true, "<html>This is your balanace. Try not to go bankrupt.</html>");
+        super("/images/Money.png", true, "<html>This is your balanace. Try not to go bankrupt.</html>");
     }
 
     /**

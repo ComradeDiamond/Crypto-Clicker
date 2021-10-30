@@ -69,7 +69,7 @@ public class GUI extends JFrame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //App icon
-        ImageIcon icon = new ImageIcon("./images/Dogecoin.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/Dogecoin.png"));
         this.setIconImage(icon.getImage());
 
         //Resume adding children
@@ -95,7 +95,7 @@ public class GUI extends JFrame
     public void addDoge()
     {
         this.removeChild(this.backgroundPanel);
-        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "Images/DogeBackground.png");
+        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "/images/DogeBackground.png");
         this.pane.add(this.backgroundPanel);
         this.revalidate();
         this.repaint();
@@ -104,7 +104,7 @@ public class GUI extends JFrame
     public void addPepe()
     {
         this.removeChild(this.backgroundPanel);
-        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "Images/PepeBackground.jpg");
+        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "/images/PepeBackground.jpg");
         this.pane.add(this.backgroundPanel);
         this.revalidate();
         this.repaint();
@@ -113,7 +113,7 @@ public class GUI extends JFrame
     public void addBit()
     {
         this.removeChild(this.backgroundPanel);
-        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "Images/BitBackground.jpg");
+        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "/images/BitBackground.jpg");
         this.pane.add(this.backgroundPanel);
         this.revalidate();
         this.repaint();

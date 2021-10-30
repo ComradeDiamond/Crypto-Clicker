@@ -16,7 +16,7 @@ public class PewDiePie extends Project
     public PewDiePie()
     {
         super("PewDiePie", "Contract PewDiePie and have him drop the T-Series diss track! Diverts attention from Dogecoin hype and halves your investor and supply accumulation.", 
-            5000, 1, "Images/PewDiePie.jpg", Color.PINK);
+            5000, 1, "/images/PewDiePie.jpg", Color.PINK);
     }
 
     public double calculateCost()

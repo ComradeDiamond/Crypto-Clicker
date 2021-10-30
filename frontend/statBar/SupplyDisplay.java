@@ -2,7 +2,6 @@ package frontend.statBar;
 
 import gameNav.Player;
 import gameNav.StatLabel;
-import javax.swing.ImageIcon;
 
 /**
  * The class for displaying the coin supply in circulation.
@@ -22,7 +21,7 @@ public class SupplyDisplay extends DataDisplay
      */
     public SupplyDisplay()
     {
-        super(new ImageIcon("images/Bank.png"), true, "How many coins are in supply. If you have dogecoins, this is going to be a nightmare.");
+        super("/images/Bank.png", true, "How many coins are in supply. If you have dogecoins, this is going to be a nightmare.");
     }
 
     /**

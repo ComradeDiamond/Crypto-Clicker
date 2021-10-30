@@ -69,7 +69,7 @@ public class CoinUpgrade extends Cover
         jp1Word.add(jp1Text);
 
         JLabel jp1Img = new JLabel();
-        ImageIcon imgIcon = new ImageIcon(new ImageIcon(Player.getCoin().getImage()).getImage().getScaledInstance(IMAGEWIDTH, IMAGEWIDTH, 16));
+        ImageIcon imgIcon = new ImageIcon(new ImageIcon(getClass().getResource(Player.getCoin().getImage())).getImage().getScaledInstance(IMAGEWIDTH, IMAGEWIDTH, 16));
         jp1Img.setIcon(imgIcon);
         jp1Img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
         jp1Img.setAlignmentY(JLabel.CENTER_ALIGNMENT);
@@ -119,7 +119,7 @@ public class CoinUpgrade extends Cover
             jp2Text.setColumns(35); 
 
             jp2Img = new JLabel();
-            ImageIcon imgIcon2 = new ImageIcon(new ImageIcon(Player.nextCoin().getImage()).getImage().getScaledInstance(IMAGEWIDTH, IMAGEWIDTH, 16));
+            ImageIcon imgIcon2 = new ImageIcon(new ImageIcon(getClass().getResource(Player.nextCoin().getImage())).getImage().getScaledInstance(IMAGEWIDTH, IMAGEWIDTH, 16));
             jp2Img.setIcon(imgIcon2);
             jp2Img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
             jp2Img.setAlignmentY(JLabel.CENTER_ALIGNMENT);

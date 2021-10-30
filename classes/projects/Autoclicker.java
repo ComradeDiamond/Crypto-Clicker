@@ -29,7 +29,7 @@ public class Autoclicker extends Project
     {
         super("Autoclicker 2000", 
         "Too lazy to install an autoclicker? This will perform 250 clicks for you. The JustinWare Corporation is not liable for any stock market crashes.", 
-        500, 1, "images/Autoclicker.png", Color.GREEN);
+        500, 1, "/images/Autoclicker.png", Color.GREEN);
 
         this.tickerations = 250;
     }

@@ -16,7 +16,7 @@ public class WallStreetBets extends Project
     public WallStreetBets()
     {
         super("Wall Street Bets", "Buy some Times Square Ads! Post some loss porn! Sponsor another episode of Chad Money - because we're taking it to r/WallStreetBets!", 
-            1000, 1, "Images/WallStreetBets.jpeg", Color.YELLOW);
+            1000, 1, "/images/WallStreetBets.jpeg", Color.YELLOW);
     }
 
     public void initiate()

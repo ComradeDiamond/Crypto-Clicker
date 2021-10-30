@@ -8,7 +8,7 @@ public class Minty extends Project
     public Minty()
     {
         super("Minty", "After defying the monarchy of Lord Spiff by setting up an illegal trading company, Minty now continues to steal competition ... for a price.", 
-            5000, 1, "Images/Minty.png", Color.RED);
+            5000, 1, "/images/Minty.png", Color.RED);
     }   
 
     public double calculateCost()

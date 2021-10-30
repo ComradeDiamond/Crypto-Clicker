@@ -1,6 +1,5 @@
 package frontend.statBar;
 
-import javax.swing.ImageIcon;
 import gameNav.Player;
 import gameNav.StatLabel;
 
@@ -22,7 +21,7 @@ public class ValueDisplay extends DataDisplay
      */
     public ValueDisplay()
     {
-        super(new ImageIcon("images/Value.png"), true, "<html>The true value of your crypto coin!<br />This drastically impacts your coin price more than any investors.</html>");
+        super("/images/Value.png", true, "<html>The true value of your crypto coin!<br />This drastically impacts your coin price more than any investors.</html>");
     }
 
     /**

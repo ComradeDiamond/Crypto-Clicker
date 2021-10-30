@@ -15,7 +15,7 @@ public class SellOption extends Project
     public SellOption()
     {
         super("Sell Option", "Are you tired of #HODL-ing on to your falling crypto coins? Sell them to investors! You'll get a random multiplier from your current stock value, but the supply might just skyrocket...", 
-        0, 1, "Images/SellOption.png", Color.CYAN);
+        0, 1, "/images/SellOption.png", Color.CYAN);
     }
 
     /**

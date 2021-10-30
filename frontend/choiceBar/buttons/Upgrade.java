@@ -20,7 +20,7 @@ public class Upgrade extends Choicer
      */
     public Upgrade()
     {
-        super("Upgrade your coin to something else!", "images/Upgrade.png");
+        super("Upgrade your coin to something else!", "/images/Upgrade.png");
         super.addMouseListener(new SmartListener(this) {
             public void mouseClicked(MouseEvent e) {
                 new CoinUpgrade().display();

@@ -8,7 +8,7 @@ public class PanicButton extends Project
     public PanicButton()
     {
         super("Panic Button", "Are the stock markets going out of control? Is Gamestop down 500%? Hit the panic button to freeze the current price!", 
-            3000, 1, "Images/PanicButton.png", Color.RED);
+            3000, 1, "/images/PanicButton.png", Color.RED);
     }
 
     public double calculateCost()
