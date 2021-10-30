@@ -16,11 +16,6 @@ public class GUI extends JFrame
     private static final long serialVersionUID = 0;
 
     /**
-     * Whether or not to add dogecoin background
-     */
-    public static boolean displayDoge = false;
-
-    /**
      * The statbar we're putting in to the GUI
      */
     private StatBar sBar;
@@ -91,13 +86,18 @@ public class GUI extends JFrame
         this.cBar = new ChoiceBar();
         this.pane.add(this.cBar);
 
-        if (GUI.displayDoge)
-        {
-            this.backgroundPanel = new BackgroundPanel(this.x, this.y);
-            this.pane.add(backgroundPanel);
-        }
-
         this.setVisible(true);
+    }
+
+    /**
+     * Add the dogecoin background
+     */
+    public void addDoge()
+    {
+        this.backgroundPanel = new BackgroundPanel(this.x, this.y);
+        this.pane.add(backgroundPanel);
+        this.revalidate();
+        this.repaint();
     }
 
     /**

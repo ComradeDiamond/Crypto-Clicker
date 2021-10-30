@@ -98,7 +98,7 @@ public class CoinUpgrade extends Cover
             jp2Title = new JLabel("Final Upgrade");
             jp2Title.setFont(new Font("Trebuchet ms", Font.BOLD, 22));
 
-            jp2Text = new JTextArea("There are no more coin upgrades! Check renewable projects and the tech tree!");
+            jp2Text = new JTextArea("There are no more coin upgrades. Dogecoin to the moon.");
             jp2Text.setFont(new Font("Trebuchet ms", Font.PLAIN, 18));
             jp2Text.setEditable(false);
             jp2Text.setWrapStyleWord(true);

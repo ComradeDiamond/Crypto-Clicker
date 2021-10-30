@@ -37,7 +37,6 @@ public class DataDisplay extends JLabel
         this.setFont(new Font("Trebuchet ms", Font.PLAIN, 22));
         this.setHorizontalAlignment(JLabel.RIGHT);
         this.setToolTipText(tooltipTxt);
-        this.setForeground(StatBar.textColor);
     }
 
     /**

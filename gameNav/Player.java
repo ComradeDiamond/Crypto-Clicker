@@ -2,9 +2,6 @@ package gameNav;
 import classes.coin.*;
 import classes.tax.*;
 import frontend.GUI;
-import frontend.statBar.StatBar;
-
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -142,11 +139,10 @@ public class Player
         if (Player.nextCoin() != null)
         {
             //When we set the new coin, the stats like investors auto-calibrates
-            if (Player.nextCoin().getName().equals("Dogecoin!!!"))
+            if (Player.nextCoin().getName().equalsIgnoreCase("Dogecoin!!!"))
             {
-                StatBar.color = new Color(19,36,76);
-                StatBar.textColor = Color.WHITE;
-                
+                Player.getGUI().addDoge();
+                Player.getGUI().getStatBar().switchDoge();
             }
 
             Player.currCoin = Player.nextCoin();

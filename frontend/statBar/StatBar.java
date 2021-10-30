@@ -43,13 +43,6 @@ public class StatBar extends JPanel
     private PriceDisplay pDisplay;
 
     /**
-     * Color of the statbar
-     */
-    public static Color color = new Color(244, 244, 244);
-
-    public static Color textColor = Color.BLACK;
-
-    /**
      * Constructor for stat bar
      * How do you even comment frontend lmao
      */
@@ -59,7 +52,7 @@ public class StatBar extends JPanel
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 25, 10));
         //this.setPreferredSize(new Dimension(1200, 110));
         this.setBounds(0, 0, 1200, 110);
-        this.setBackground(StatBar.color);
+        this.setBackground(new Color(244, 244, 244));
 
         //Setting the displays and putting them in
         this.cDisplay = new CashDisplay();
@@ -74,6 +67,21 @@ public class StatBar extends JPanel
         this.add(this.vDisplay);
         this.add(this.sDisplay);
         this.add(this.iDisplay);
+    }
+
+    /**
+     * Switch all the frontend styles to the doge
+     */
+    public void switchDoge()
+    {
+        this.vDisplay.setForeground(Color.WHITE);
+        this.cDisplay.setForeground(Color.WHITE);
+        this.pDisplay.setForeground(Color.WHITE);
+        this.sDisplay.setForeground(Color.WHITE);
+        this.iDisplay.setForeground(Color.WHITE);
+        this.setBackground(new Color(19,36,76));
+        this.revalidate();
+        this.repaint();
     }
 
     /**
