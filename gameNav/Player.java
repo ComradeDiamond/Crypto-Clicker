@@ -25,8 +25,8 @@ public class Player
     /**
      * The money you have
      */
-    //private static double cash = 1000000000;
-    private static double cash = 0;
+    private static double cash = 1000000000;
+    //private static double cash = 0;
 
     /**
      * The coin index the current coinArr idx player is at in the coinArr

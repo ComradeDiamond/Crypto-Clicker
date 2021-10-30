@@ -118,6 +118,7 @@ public class ProjectUpgrade extends Cover
                 jp1.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 0));
                 
                 JLabel jp1Img = new JLabel();
+                System.out.println(el.getImage());
                 ImageIcon imgIcon = new ImageIcon(new ImageIcon(getClass().getResource(el.getImage())).getImage().getScaledInstance(IMAGEWIDTH, IMAGEWIDTH, 16));
                 jp1Img.setIcon(imgIcon);
                 jp1Img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
