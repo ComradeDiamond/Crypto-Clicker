@@ -29,6 +29,7 @@ public class LeftBar extends JPanel
         this.setPreferredSize(new Dimension(100, 465));
         this.add(LeftBar.upgrade);
         this.add(LeftBar.project);
+        this.setOpaque(false);
     }
 
     public static Project getProject()

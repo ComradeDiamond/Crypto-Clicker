@@ -29,5 +29,6 @@ public class ChoiceBar extends JPanel
 
         this.add(new LeftBar());
         this.add(new RightBar());
+        this.setOpaque(false);
     }
 }

@@ -40,7 +40,14 @@ public class StatBar extends JPanel
     /**
      * The price display that will display the price
      */
-    private PriceDisplay pDisplay;;
+    private PriceDisplay pDisplay;
+
+    /**
+     * Color of the statbar
+     */
+    public static Color color = new Color(244, 244, 244);
+
+    public static Color textColor = Color.BLACK;
 
     /**
      * Constructor for stat bar
@@ -52,7 +59,7 @@ public class StatBar extends JPanel
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 25, 10));
         //this.setPreferredSize(new Dimension(1200, 110));
         this.setBounds(0, 0, 1200, 110);
-        this.setBackground(new Color(224, 224, 224));
+        this.setBackground(StatBar.color);
 
         //Setting the displays and putting them in
         this.cDisplay = new CashDisplay();

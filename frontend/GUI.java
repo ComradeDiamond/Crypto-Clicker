@@ -16,6 +16,11 @@ public class GUI extends JFrame
     private static final long serialVersionUID = 0;
 
     /**
+     * Whether or not to add dogecoin background
+     */
+    public static boolean displayDoge = false;
+
+    /**
      * The statbar we're putting in to the GUI
      */
     private StatBar sBar;
@@ -44,6 +49,11 @@ public class GUI extends JFrame
      * The height of the pane
      */
     private int y;
+
+    /**
+     * The background of this GUI
+     */
+    private BackgroundPanel backgroundPanel;
 
     /**
      * Constructs the game GUI
@@ -80,6 +90,12 @@ public class GUI extends JFrame
 
         this.cBar = new ChoiceBar();
         this.pane.add(this.cBar);
+
+        if (GUI.displayDoge)
+        {
+            this.backgroundPanel = new BackgroundPanel(this.x, this.y);
+            this.pane.add(backgroundPanel);
+        }
 
         this.setVisible(true);
     }
@@ -122,6 +138,15 @@ public class GUI extends JFrame
         this.pane.remove(component);
         this.pane.revalidate();
         this.pane.repaint();
+    }
+
+    /**
+     * Accessor method for background panel
+     * @return this.backgroundPanel
+     */
+    public BackgroundPanel getBackgroundPanel()
+    {
+        return this.backgroundPanel;
     }
     
     /**
