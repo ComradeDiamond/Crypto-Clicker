@@ -14,7 +14,7 @@ public class ElonMusk extends Project
     public ElonMusk()
     {
         super("Worship Elon Musk", "Whenever Elon tweets, the stonk market is guarenteed to go up by 5000%. CNBC facepalms as they lecture us Apes about bad investments.", 
-            20000, 1, "/Images/ElonMusk.jpg", new Color(255, 213, 0));
+            20000, 1, "/images/ElonMusk.jpg", new Color(255, 213, 0));
     }
 
     public double calculateCost()
