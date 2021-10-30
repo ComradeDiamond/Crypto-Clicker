@@ -13,7 +13,7 @@ public class LoanConsolidation extends Project
 {
     public LoanConsolidation()
     {
-        super("Loan Consolidation", "As your YOLO your entire life savings, the banks decidde you are too big to fail. Reluctantly, they offer you a loan consolidation for 2x of your current debt with a 10% tax every time you click.",
+        super("Loan Consolidation", "As your YOLO your entire life savings, the banks decide you are too big to fail. Reluctantly, they offer you a loan consolidation for 2x of your current debt with a 10% tax every time you click.",
         0, 1, "Images/LoanConsolidate.png", Color.PINK);
     }
 

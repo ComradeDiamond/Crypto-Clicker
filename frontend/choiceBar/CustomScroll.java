@@ -1,7 +1,6 @@
 package frontend.choiceBar;
 
 import java.awt.*;
-import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
 /**

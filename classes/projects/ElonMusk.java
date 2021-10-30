@@ -1,7 +1,6 @@
 package classes.projects;
 
 import java.awt.Color;
-import classes.coin.Dogecoin;
 import gameNav.Player;
 
 /**
@@ -50,6 +49,7 @@ public class ElonMusk extends Project
         if (Player.getCoin().getName().equals("Dogecoin!!!"))
         {
             Player.getCoin().changeModify(Player.getCoin().getModify() * Math.random() + 0.1);
+            Player.getCoin().changeSupply(200);
         }
     }
 }

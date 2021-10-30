@@ -35,7 +35,11 @@ public class ProjectUpgrade extends Cover
         Map.entry("PewDiePie", new PewDiePie()),
         Map.entry("Spiff", new Spiff()),
         Map.entry("ElonMusk", new ElonMusk()),
-        Map.entry("MrBeast", new MrBeast())
+        Map.entry("MrBeast", new MrBeast()),
+        Map.entry("Technoblade", new Technoblade()),
+        Map.entry("WallStreetBets", new WallStreetBets()),
+        Map.entry("PanicButton", new PanicButton()),
+        Map.entry("Minty", new Minty())
     );
 
     /**

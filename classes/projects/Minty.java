@@ -1,8 +1,6 @@
 package classes.projects;
 
 import java.awt.Color;
-
-import classes.coin.Dogecoin;
 import gameNav.Player;
 
 public class Minty extends Project
@@ -45,7 +43,7 @@ public class Minty extends Project
         if (Player.getCoin().getName().equals("Dogecoin!!!"))
         {
             Player.getCoin().changeModify(1);
-            int currSupply = Player.getCoin().getSupply();
+            long currSupply = Player.getCoin().getSupply();
             Player.getCoin().setSupply(currSupply / (int)(Math.log(currSupply) + 1));
         }
     }

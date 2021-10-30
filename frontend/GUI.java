@@ -4,7 +4,6 @@ import javax.swing.*;
 import frontend.statBar.StatBar;
 import frontend.choiceBar.ChoiceBar;
 import frontend.coin.CoinDisplay;
-import frontend.choiceBar.displays.*;
 
 /**
  * Constructs a javax swing GUI for the app.

@@ -20,13 +20,13 @@ public class Coin {
     /**
      * How many investors are investing in the coin uwu
      */
-    protected int investors;
+    protected long investors;
 
     /**
      * How many coins are in circulation. 
      * This is about to cause inflation lmao
      */
-    protected int supply;
+    protected long supply;
 
     /**
      * Modify stonk value for some reason.
@@ -92,7 +92,7 @@ public class Coin {
      * Change the supply of the coin
      * @param num How much to change the supply by
      */
-    public void changeSupply(int num)
+    public void changeSupply(long num)
     {
         this.supply += num;
     }
@@ -101,7 +101,7 @@ public class Coin {
      * Accessor method for supply
      * @return this.supply
      */
-    public int getSupply()
+    public long getSupply()
     {
         return this.supply;
     }
@@ -146,7 +146,7 @@ public class Coin {
      * Change the investors this has
      * @param num The number of investors to change supply by
      */
-    public void changeInvestors(int num)
+    public void changeInvestors(long num)
     {
         this.investors += num;
     }
@@ -155,7 +155,7 @@ public class Coin {
      * Mutator method for investors
      * @param num Number to set this.investors to
      */
-    public void setInvestors(int num)
+    public void setInvestors(long num)
     {
         this.investors = num;
     }
@@ -164,7 +164,7 @@ public class Coin {
      * Accessor method for this.investors
      * @return this.investors
      */
-    public int getInvestors()
+    public long getInvestors()
     {
         return this.investors;
     }
@@ -237,7 +237,7 @@ public class Coin {
     /**
      * Mutator method for this.supply
      */
-    public void setSupply(int supply)
+    public void setSupply(long supply)
     {
         this.supply = supply;
     }

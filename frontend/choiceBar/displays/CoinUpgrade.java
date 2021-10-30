@@ -4,7 +4,6 @@ import javax.swing.border.*;
 import java.awt.event.*;
 import java.awt.*;
 import gameNav.Player;
-import gameNav.PlayerActions;
 
 /**
  * Frontend class that displays a cover modal to update the coins!

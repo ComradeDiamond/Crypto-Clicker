@@ -23,7 +23,7 @@ public class WallStreetBets extends Project
     {
         if (Player.getCoin().getName().equals("Dogecoin!!!"))
         {
-            ((Dogecoin)Player.getCoin()).changeInvestors(Player.getCoin().getInvestors() * (int)(Math.random() * 2000 + 500));
+            ((Dogecoin)Player.getCoin()).changeInvestors(Player.getCoin().getInvestors() * (int)(Math.random() * 2000 + 50));
             ((Dogecoin)Player.getCoin()).changeModify(1);
         }
     }

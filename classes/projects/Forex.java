@@ -51,7 +51,7 @@ public class Forex extends Project
      */
     public void initiate()
     {
-        int tfp = Player.getCoin().getSupply();
+        long tfp = Player.getCoin().getSupply();
         Player.getCoin().setSupply((int)(tfp * (1 - this.maxPercent)));
 
         if (this.maxPercent < 1)
