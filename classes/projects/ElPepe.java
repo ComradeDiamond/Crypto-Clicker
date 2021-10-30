@@ -15,7 +15,7 @@ public class ElPepe extends Project
 {
     public ElPepe()
     {
-        super("El Pepe", "The TikTok trend has gone too far - support Pepe now for clout! Mark by words: with crazy clout comes crazy stans. The mightiness of El Pepe crashes your Amazon EC2 and your timed commands.", 
+        super("El Pepe", "The TikTok trend has gone too far - support Pepe now for clout! Mark my words: with crazy clout comes crazy stans. The mightiness of El Pepe crashes your Amazon EC2 and your timed commands.", 
             10000, 1, "/images/Pepe.png", new Color(82, 255, 171));
     }
 

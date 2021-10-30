@@ -15,7 +15,7 @@ public class Technoblade extends Project
 {
     public Technoblade()
     {
-        super("#TechnoSupport", "\"I don't believe in friendship, Tommy… We tell ourselves it's real so the cogs of society can turn… The only thing that's real, Tommy… is CASH!\"", 
+        super("#TechnoSupport", "\"I don't believe in friendship, Tommy... We tell ourselves it's real so the cogs of society can turn... The only thing that's real, Tommy... is CASH!\"", 
             100000, 1, "/images/Technoblade.png", Color.MAGENTA);
     }
 
