@@ -25,7 +25,7 @@ public class Dogecoin extends Coin
      */
     public Dogecoin()
     {
-        super("Dogecoin!!!", 0.0000000001, 10000, "images/Dogecoin.png", 100000000,
+        super("Dogecoin!!!", 0.1, 10000, "images/Dogecoin.png", 100000000,
             "A coin that has absolutely no hard limits on supply and is insanely easy to mine. What's a safe investment? Researching the doge coin officially allows overflow investors to decrease supply.");
         this.corruptCoin = false;
         this.mechanics = 1;
@@ -35,8 +35,9 @@ public class Dogecoin extends Coin
     public double calculatePrice()
     {
         if (this.forcedPrice != -1) return this.forcedPrice;
-        double typ = (this.value * (this.investors * 0.75) + 1) / Math.max(1, Math.pow(this.supply, Math.max(0.8, Math.random() + 0.2)));
-        return typ + modify;
+        double typ = (this.value * (this.investors * 0.5) + 1) / Math.max(1, Math.pow(this.supply, Math.max(0.8, Math.random() + 0.5)));
+        double surprise = Math.random() * 2.5 + 0.25;
+        return (typ) * surprise + modify;
     }
 
     /**

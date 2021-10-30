@@ -138,11 +138,22 @@ public class Player
     {
         if (Player.nextCoin() != null)
         {
-            //When we set the new coin, the stats like investors auto-calibrates
-            if (Player.nextCoin().getName().equalsIgnoreCase("Dogecoin!!!"))
+            switch (Player.nextCoin().getName())
             {
-                Player.getGUI().addDoge();
-                Player.getGUI().getStatBar().switchDoge();
+                case "Dogecoin!!!":
+                    Player.getGUI().addDoge();
+                    Player.getGUI().getStatBar().switchDoge();
+                break;
+
+                case "Pepecoin":
+                    Player.getGUI().addPepe();
+                    Player.getGUI().getStatBar().switchPepe();
+                break;
+
+                case "Bitcoin":
+                    Player.getGUI().addBit();
+                    Player.getGUI().getStatBar().switchBit();
+                break;
             }
 
             Player.currCoin = Player.nextCoin();

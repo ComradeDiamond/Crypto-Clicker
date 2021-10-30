@@ -84,6 +84,26 @@ public class StatBar extends JPanel
         this.repaint();
     }
 
+    public void switchPepe()
+    {
+        this.vDisplay.setForeground(Color.WHITE);
+        this.cDisplay.setForeground(Color.WHITE);
+        this.pDisplay.setForeground(Color.WHITE);
+        this.sDisplay.setForeground(Color.WHITE);
+        this.iDisplay.setForeground(Color.WHITE);
+        this.setBackground(new Color(130, 12, 173));
+        this.revalidate();
+        this.repaint();
+    }
+
+    public void switchBit()
+    {
+        //this.setBackground(new Color(252, 207, 3));
+        this.setBackground(new Color(207, 175, 19));
+        this.revalidate();
+        this.repaint();
+    }
+
     /**
      * Automatically calls calibrate on all the statbar widget displays.
      * @param isStonks Whether the price of the coin has increased or not

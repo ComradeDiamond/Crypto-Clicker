@@ -94,8 +94,27 @@ public class GUI extends JFrame
      */
     public void addDoge()
     {
-        this.backgroundPanel = new BackgroundPanel(this.x, this.y);
-        this.pane.add(backgroundPanel);
+        this.removeChild(this.backgroundPanel);
+        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "Images/DogeBackground.png");
+        this.pane.add(this.backgroundPanel);
+        this.revalidate();
+        this.repaint();
+    }
+
+    public void addPepe()
+    {
+        this.removeChild(this.backgroundPanel);
+        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "Images/PepeBackground.jpg");
+        this.pane.add(this.backgroundPanel);
+        this.revalidate();
+        this.repaint();
+    }
+
+    public void addBit()
+    {
+        this.removeChild(this.backgroundPanel);
+        this.backgroundPanel = new BackgroundPanel(this.x, this.y, "Images/BitBackground.jpg");
+        this.pane.add(this.backgroundPanel);
         this.revalidate();
         this.repaint();
     }
@@ -135,6 +154,7 @@ public class GUI extends JFrame
      */
     public void removeChild(JComponent component)
     {
+        if (component == null) return;
         this.pane.remove(component);
         this.pane.revalidate();
         this.pane.repaint();

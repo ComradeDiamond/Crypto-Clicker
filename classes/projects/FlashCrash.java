@@ -17,7 +17,17 @@ public class FlashCrash extends Project
     public FlashCrash()
     {
         super("Flash Crash", "Execute high speed Linux trading software to create a massive flash crash. Investors panic sell over the next 10 turns.", 
-        10000, 1, "images/FlashCrash.png", Color.RED);
+            10000, 1, "images/FlashCrash.png", Color.RED);
+    }
+
+    public String getDesc()
+    {
+        if (Player.getCoin().getName().equals("Dogecoin!!!"))
+        {
+            return "Execute high speed Linux trading software to create a massive flash crash. Dogecoin fans are even more riled up about the volatility.";
+        }
+
+        return this.description;
     }
 
     /**
@@ -27,7 +37,7 @@ public class FlashCrash extends Project
     public boolean determineDisplay()
     {
         String pName = Player.getCoin().getName();
-        return pName.equalsIgnoreCase("Bitcoin") || pName.equalsIgnoreCase("Pepecoin");
+        return !pName.equalsIgnoreCase("Litecoin");
     }
 
     
@@ -81,8 +91,16 @@ class FCCmd extends TimedCommand
      */
     public boolean execute()
     {
-        Player.getCoin().setSupply((int)(Player.getCoin().getSupply() * Math.max(0.5, Math.random())));
-        Player.getCoin().setInvestors((int)(Player.getCoin().getInvestors() * Math.max(0.75, Math.random())));
+        if (Player.getCoin().getName().equals("Dogecoin!!!"))
+        {
+            Player.getCoin().changeSupply((int)(Player.getCoin().getSupply() * Math.random() * 1.5));
+            Player.getCoin().changeInvestors((int)(Player.getCoin().getInvestors() * Math.random() * Player.getCoin().getModify()));
+        }
+        else
+        {
+            Player.getCoin().setSupply((int)(Player.getCoin().getSupply() * Math.max(0.5, Math.random())));
+            Player.getCoin().setInvestors((int)(Player.getCoin().getInvestors() * Math.max(0.75, Math.random())));
+        }
 
         if (this.getTimer() == 1 || this.getTimer() == 0 || this.getTimer() == -1)
         {
